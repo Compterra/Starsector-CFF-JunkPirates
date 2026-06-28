@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.2
+
+- Fixed a campaign crash from `FamiliaHQ$1.class` being compiled for Java 21 instead of Starsector's Java 17 runtime.
+- Rebuilt the affected Familia HQ classfiles with Java 17-compatible bytecode.
+
 ## 1.0.0
 
 Initial CFF restoration release for Starsector `0.98a-RC8`.
