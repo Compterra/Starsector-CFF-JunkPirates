@@ -1,8 +1,8 @@
 # Changelog
 
-## 3.5.5
+## 1.0.0
 
-Restoration release for Starsector `0.98a-RC8`.
+Initial CFF restoration release for Starsector `0.98a-RC8`.
 
 - Updated dependency metadata for LazyLib and GraphicsLib.
 - Added/updated Nexerelin faction setup and compatibility data.

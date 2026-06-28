@@ -8,6 +8,11 @@ This release combines three related faction packs into one maintained mod packag
 - **PACK**: canine-themed combat ships with PACK Mesh integration and mixed-fleet support.
 - **ASP Syndicate**: underworld fleets, couriers, hit squads, and related Nexerelin activity.
 
+## Links
+
+- Forum thread: https://fractalsoftworks.com/forum/index.php?topic=35651.0
+- Version Checker file: https://raw.githubusercontent.com/Compterra/Starsector-CFF-JunkPirates/main/junk_pirates.version
+
 ## Current Restoration Notes
 
 This fork is a local restoration pass for modern Starsector. It includes dependency metadata updates, Nexerelin faction setup, save-load recovery work, relation cleanup, LunaLib settings, Starship Legends support, first-pass ship balance, and compatibility work for `0.98a-RC8`.
