@@ -1,0 +1,56 @@
+{
+  "displayName": "Assault",
+  "fluxCapacitors": 5,
+  "fluxVents": 30,
+  "goalVariant": true,
+  "hullId": "syndicate_asp_copperhead_p",
+  "hullMods": [
+    "safetyoverrides"
+  ],
+  "permaMods": [],
+  "quality": 0,
+  "variantId": "syndicate_asp_copperhead_p_Assault",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0005": "annihilatorpod",
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+	"WS0001": "heavymortar",
+        "WS0002": "heavymortar",
+	}
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "syndicate_asp_typewriter",
+        "WS0004": "syndicate_asp_typewriter"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0011": "vulcan",
+	"WS0006": "pdlaser",
+        "WS0007": "pdlaser",
+        "WS0008": "lightdualmg",
+        "WS0009": "lightdualmg",
+        "WS0010": "vulcan"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {}
+    }
+  ],
+  "wings": []
+}

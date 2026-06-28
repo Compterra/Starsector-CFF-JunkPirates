@@ -1,0 +1,35 @@
+{
+  "displayName": "Standard",
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "goalVariant": true,
+  "hullId": "pack_partial_supportR",
+  "hullMods": [],
+  "permaMods": [],
+  "quality": 0,
+  "variantId": "pack_partial_supportR_Standard",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "arbalest",
+        "WS0002": "heavyac",
+        "WS0003": "chaingun"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0004": "pdlaser",
+        "WS0005": "pdlaser",
+        "WS0006": "pdlaser"
+      }
+    }
+  ],
+  "wings": [
+    "pack_gunship_wing",
+    "pack_bomber_wing"
+  ]
+}

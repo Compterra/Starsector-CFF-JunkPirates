@@ -1,0 +1,67 @@
+{
+  "displayName": "Social Justice",
+  "fluxCapacitors": 20,
+  "fluxVents": 50,
+  "goalVariant": true,
+  "hullId": "junk_pirates_kraken",
+  "hullMods": [
+    "targetingunit",
+    "advancedoptics"
+  ],
+  "permaMods": [],
+  "quality": 0,
+  "variantId": "junk_pirates_kraken_CS",
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 15": "heavymauler",
+        "WS 19": "devastator",
+        "WS 20": "hellbore",
+        "WS 3": "heavymauler"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 7": "tachyonlance"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 10": "lightmortar",
+        "WS 12": "lightmortar",
+        "WS 8": "lightmortar",
+        "WS 9": "lightmortar"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 1": "flak",
+        "WS 11": "pdlaser",
+        "WS 17": "pdlaser",
+        "WS 18": "pdlaser",
+        "WS 2": "flak",
+        "WS 4": "pdburst",
+        "WS 5": "heavyburst",
+        "WS 6": "heavyburst"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 13": "salamanderpod",
+        "WS 14": "salamanderpod",
+        "WS 16": "salamanderpod"
+      }
+    }
+  ],
+  "wings": []
+}

@@ -1,0 +1,48 @@
+{
+  "quality":0.5,
+  "displayName": "Standard",
+  "fluxCapacitors": 11,
+        "goalVariant": true,
+  "fluxVents": 20,
+  "hullId": "pack_pitbull_rothund",
+  "hullMods": [
+    "missleracks",
+    "eccm"
+  ],
+  "variantId": "pack_pitbull_rothund_Standard",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0001": "annihilator",
+        "WS0002": "annihilator",
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0003": "harpoon",
+        "WS0004": "harpoon"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0005": "vulcan",
+        "WS0006": "vulcan"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0007": "lightac",
+        "WS0008": "lightac",
+        "WS0009": "pack_ripsaw"
+      }
+    }
+  ]
+}

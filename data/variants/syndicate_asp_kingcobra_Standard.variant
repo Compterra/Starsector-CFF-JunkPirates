@@ -1,0 +1,41 @@
+{
+  "displayName": "Cruise Liner",
+  "fluxCapacitors": 10,
+  "fluxVents": 14,
+  "goalVariant": true,
+  "hullId": "syndicate_asp_kingcobra",
+  "hullMods": [
+    "dedicated_targeting_core",
+    "recovery_shuttles",
+    "magazines",
+    "pointdefenseai"
+  ],
+  "permaMods": [],
+  "quality": 0,
+  "variantId": "syndicate_asp_kingcobra_Standard",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "autopulse",
+        "WS0002": "pdburst",
+        "WS0003": "heavyburst",
+        "WS0004": "heavyburst",
+        "WS0005": "hurricane",
+        "WS0006": "salamanderpod",
+        "WS0007": "pdburst",
+        "WS0008": "pdburst",
+        "WS0009": "pdburst",
+        "WS0010": "pdburst",
+        "WS0011": "pdburst",
+        "WS0012": "pdburst"
+      }
+    }
+  ],
+  "wings": [
+    "syndicate_asp_bite_wing",
+    "syndicate_asp_venom_wing",
+    "syndicate_asp_venom_wing"
+  ]
+}

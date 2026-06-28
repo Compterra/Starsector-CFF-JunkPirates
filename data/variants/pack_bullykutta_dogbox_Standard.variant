@@ -1,0 +1,53 @@
+{
+  "displayName": "Overdriven",
+  "fluxCapacitors": 13,
+  "fluxVents": 5,
+  "goalVariant": true,
+  "hullId": "pack_bullykutta_dogbox",
+  "hullMods": [
+    "heavyarmor",
+  ],
+  "permaMods": [],
+  "quality": 0,
+  "variantId": "pack_bullykutta_dogbox_Standard",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0013": "hellbore"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0011": "chaingun",
+        "WS0012": "chaingun"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0001": "vulcan",
+        "WS0002": "vulcan",
+        "WS0003": "vulcan",
+        "WS0004": "vulcan",
+        "WS0005": "vulcan",
+        "WS0006": "vulcan",
+        "WS0007": "vulcan",
+        "WS0008": "vulcan"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0009": "railgun",
+        "WS0010": "railgun"
+      }
+    }
+  ],
+  "wings": []
+}

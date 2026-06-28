@@ -1,0 +1,21 @@
+fieldID,fieldName,fieldType,defaultValue,secondaryValue,fieldDescription,minValue,maxValue,tab
+jp_core_header,Core systems,Header,Core systems,,,,,World
+enableJunkPirates,Enable Breh'Inni/Junk Pirates,Boolean,true,,"Controls generation of the Breh'Inni system and Junk Pirate core worlds in non-Nex random sectors.",,,World
+enablePACK,Enable Canis/P.A.C.K.,Boolean,true,,"Controls generation of the Canis system and P.A.C.K. core worlds in non-Nex random sectors.",,,World
+enableASP,Enable Ursulo/ASP Syndicate,Boolean,true,,Controls generation of the Ursulo system and ASP core worlds in non-Nex random sectors.,,,World
+jp_fleet_header,Fleets,Header,Fleets,,,,,Fleets
+enableASPCourierFleets,Enable ASP courier fleets,Boolean,true,,Allows ASP courier fleets to spawn from ASP markets.,,,Fleets
+enableASPHitSquads,Enable ASP hit squads,Boolean,true,,Allows ASP Familia hit squads when courier fleet logic is active.,,,Fleets
+enableJunkExplorers,Enable Junk explorer fleets,Boolean,true,,Allows Junk Pirate explorer fleets to spawn from Junk Pirate worlds.,,,Fleets
+junkPiratesFleetFrequencyModifier,Fleet frequency multiplier,Double,1.0,,"Scales ASP and Junk Pirate fleet spawn frequency.",0,5,Fleets
+junkPiratesMaxFleetModifier,Maximum fleet multiplier,Double,1.0,,"Scales ASP and Junk Pirate fleet caps.",0,5,Fleets
+jp_procgen_header,Procgen,Header,Procgen,,,,,Procgen
+enableProcGen,Enable procgen content,Boolean,true,,"Enables procgen Pre-PACK anarchist systems, spinerettes, derelicts, and ship graveyards.",,,Procgen
+enableSpinerettes,Enable spinerettes,Boolean,true,,Allows Automata Cloud/spinerette content when procgen is enabled.,,,Procgen
+skipProbability,Constellation skip probability,Double,0.9,,"Chance to skip eligible constellations after the minimum has been generated. Lower values create more Junk Pirates procgen content.",0,1,Procgen
+minAnarchistConstellations,Minimum anarchist constellations,Int,3,,Minimum number of Pre-PACK anarchist constellations to try to generate.,0,12,Procgen
+maxAnarchistConstellations,Maximum anarchist constellations,Int,6,,Maximum number of Pre-PACK anarchist constellations to try to generate.,0,20,Procgen
+softMaxSpinerettes,Soft maximum spinerettes,Int,3,,Soft cap for Automata Cloud/spinerette placement.,0,10,Procgen
+jp_experimental_header,Experimental,Header,Experimental,,,,,Experimental
+enablePACKDiplomats,Enable P.A.C.K. diplomats,Boolean,true,,Reserved for future diplomat content. Currently has no gameplay effect.,,,Experimental
+enableJunkPiratesIntel,Enable experimental Junk intel,Boolean,false,,"Old optional intel flow. Disabled by default because the original notes mention save/load instability.",,,Experimental

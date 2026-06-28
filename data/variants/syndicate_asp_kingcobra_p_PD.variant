@@ -1,0 +1,65 @@
+{
+  "displayName": "Point Defense",
+  "fluxCapacitors": 4,
+  "fluxVents": 31,
+  "goalVariant": true,
+  "hullId": "syndicate_asp_kingcobra_p",
+  "hullMods": [
+    "turretgyros",
+    "targetingunit",
+    "magazines",
+    "pointdefenseai"
+  ],
+  "permaMods": [],
+  "quality": 0,
+  "variantId": "syndicate_asp_kingcobra_p_PD",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "cyclone"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "guardian",
+        "WS0002": "pdburst",
+        "WS0004": "heavyburst",
+        "WS0007": "pdburst",
+        "WS0008": "pdlaser",
+        "WS0009": "pdlaser",
+        "WS0010": "pdlaser",
+        "WS0011": "pdlaser",
+        "WS0012": "pdlaser"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0005": "locust",
+        "WS0013": "locust"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0006": "salamanderpod"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {}
+    }
+  ],
+  "wings": [
+    "syndicate_asp_death_rattle_wing",
+    "syndicate_asp_death_rattle_wing",
+    "syndicate_asp_death_rattle_wing"
+  ]
+}

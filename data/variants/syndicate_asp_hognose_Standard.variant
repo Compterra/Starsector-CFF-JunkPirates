@@ -1,0 +1,43 @@
+{
+  "displayName": "Standard",
+  "fluxCapacitors": 0,
+  "fluxVents": 8,
+  "goalVariant": true,
+  "hullId": "syndicate_asp_hognose",
+  "hullMods": [
+    "pointdefenseai",
+    "fluxbreakers",
+    "turretgyros"
+  ],
+  "permaMods": [],
+  "quality": 0,
+  "variantId": "syndicate_asp_hognose_Standard",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0005": "atropos_single"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "taclaser",
+        "WS0002": "taclaser",
+        "WS0003": "taclaser"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0004": "pilum"
+      }
+    }
+  ],
+  "wings": [
+    "syndicate_asp_venom_wing"
+  ]
+}

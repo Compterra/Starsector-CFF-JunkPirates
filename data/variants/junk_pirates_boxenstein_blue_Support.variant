@@ -1,0 +1,51 @@
+{
+	"displayName":"Support",
+	"hullId":"junk_pirates_boxenstein_blue",
+	"variantId":"junk_pirates_boxenstein_blue_Support",
+        "goalVariant": true,
+	"fluxVents":4,
+	"fluxCapacitors":0,
+	"hullMods":[
+		"missleracks",
+		"eccm"
+	], # array of strings
+	
+	# mode is either LINKED or ALTERNATING
+	# slot ids (WS ***) must match what's in the .ship file
+	"weaponGroups":[
+		{
+		"autofire": true,
+		"mode":"LINKED",
+		 "weapons":{
+		 			"WS 001":"irpulse",
+		 			"WS 002":"irpulse",
+		 			"WS 003":"irpulse",
+		 			"WS 004":"irpulse",
+		 		   },
+		},
+		{
+		"autofire": false,
+		"mode":"LINKED",
+		 "weapons":{
+					"WS 005":"vayra_electrobeam",
+		 			"WS 006":"vayra_electrobeam",
+					},
+		},
+		{
+		"autofire": false,
+		"mode":"ALTERNATING",
+		 "weapons":{
+		 			"WS 009":"vayra_junkjet_rack",
+					"WS 010":"vayra_junkjet_rack",
+		 		   },
+		},
+		{
+		"autofire": false,
+		"mode":"ALTERNATING",
+		 "weapons":{
+					"WS 008":"vayra_junkjet_pod",
+					"WS 007":"vayra_junkjet_pod",
+		 		   },
+		},
+	],
+}

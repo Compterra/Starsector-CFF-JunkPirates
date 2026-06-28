@@ -1,0 +1,52 @@
+{
+  "displayName": "Standard",
+  "fluxCapacitors": 6,
+  "fluxVents": 20,
+  "goalVariant": true,
+  "hullId": "pack_BRT_canebianco",
+  "hullMods": [
+    "hardened_subsystems",
+    "advancedshieldemitter",
+    "armoredweapons"
+  ],
+  "permaMods": [],
+  "quality": 0.5,
+  "variantId": "pack_BRT_canebianco_Standard",
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "vulcan",
+        "WS0002": "vulcan",
+        "WS0010": "pack_affenpinscher"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0007": "gravitonbeam",
+        "WS0008": "gravitonbeam"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {}
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {}
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {}
+    }
+  ],
+  "wings": [
+    "pack_gunship_wing"
+  ]
+}

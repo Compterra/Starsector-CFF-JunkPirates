@@ -1,0 +1,40 @@
+{
+  "displayName": "Standard",
+  "fluxCapacitors": 10,
+  "fluxVents": 10,
+  "goalVariant": true,
+  "hullId": "pack_schnauzer",
+  "hullMods": [
+    "auxiliarythrusters",
+    "stabilizedshieldemitter"
+  ],
+  "permaMods": [],
+  "quality": 0,
+  "variantId": "pack_schnauzer_Standard",
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "railgun",
+        "WS0002": "railgun"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0005": "lightag"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "lightmortar",
+        "WS0004": "lightmortar"
+      }
+    }
+  ],
+  "wings": []
+}

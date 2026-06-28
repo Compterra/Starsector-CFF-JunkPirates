@@ -1,0 +1,57 @@
+{
+  "displayName": "Strike",
+  "fluxCapacitors": 5,
+  "fluxVents": 8,
+  "goalVariant": true,
+  "hullId": "syndicate_asp_gigantophis_p",
+  "hullMods": [
+    "targetingunit",
+    "expanded_deck_crew"
+  ],
+  "permaMods": [],
+  "quality": 0,
+  "variantId": "syndicate_asp_gigantophis_p_Strike",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 10": "gravitonbeam",
+        "WS0003": "heatseeker",
+        "WS0004": "heatseeker",
+        "WS0005": "tpc"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 11": "gravitonbeam",
+        "WS 4": "taclaser",
+        "WS 5": "taclaser",
+        "WS 6": "taclaser"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 1": "pdlaser",
+        "WS 2": "pdlaser",
+        "WS 7": "pdlaser",
+        "WS 8": "pdlaser",
+        "WS0001": "pdlaser",
+        "WS0002": "pdlaser"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {}
+    }
+  ],
+  "wings": [
+    "syndicate_asp_constrictor_wing",
+    "longbow_wing"
+  ]
+}

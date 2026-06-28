@@ -1,0 +1,51 @@
+{
+    "displayName": "Assault",
+    "fluxCapacitors": 9,
+    "fluxVents": 30,
+        "goalVariant": true,
+    "hullId": "junk_pirates_magpie",
+    "hullMods": [
+        "targetingunit",
+        "missleracks",
+        "advancedoptics",
+        "pointdefenseai"
+    ],
+    "quality": 0.5,
+    "variantId": "junk_pirates_magpie_Assault",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {"WS0003": "cyclone"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "junk_pirates_lexcimer",
+                "WS0006": "junk_pirates_lexcimer",
+                "WS0010": "junk_pirates_lexcimer",
+                "WS0011": "junk_pirates_lexcimer",
+                "WS0012": "junk_pirates_lexcimer"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0014": "flak"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "junk_pirates_pica",
+                "WS0002": "junk_pirates_pica"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {}
+        }
+    ]
+}

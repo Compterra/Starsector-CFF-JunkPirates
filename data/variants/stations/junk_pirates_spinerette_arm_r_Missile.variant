@@ -1,0 +1,30 @@
+{
+  "displayName": "Missile",
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "goalVariant": true,
+  "hullId": "junk_pirates_spinerette_arm_r",
+  "hullMods": [],
+  "permaMods": [],
+  "quality": 0,
+  "variantId": "junk_pirates_spinerette_arm_r_Missile",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0001": "vayra_junkjet_pod",
+        "WS0002": "vayra_junkjet_pod",
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+	"WS0003": "junk_pirates_grapeshot_s",
+        "WS0004": "junk_pirates_grapeshot_s"
+	}
+    }
+  ],
+  "wings": []
+}

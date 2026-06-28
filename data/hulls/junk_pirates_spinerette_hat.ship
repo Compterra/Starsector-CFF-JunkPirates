@@ -1,0 +1,121 @@
+{
+  "bounds": [
+    69.5,
+    -26.5,
+    55.5,
+    -72.5,
+    8,
+    -138.5,
+    8,
+    137.5,
+    55.5,
+    71.5,
+    69.5,
+    25.5
+  ],
+  "builtInMods": [
+    "reduced_explosion",
+    #"vastbulk",
+  ],
+  "builtInWings": [
+    "junk_pirates_latrodectus_wing",
+    "junk_pirates_latrodectus_wing"
+  ],
+  "center": [
+    149.5,
+    28.5
+  ],
+  "collisionRadius": 151.5,
+  "engineSlots": [],
+  "height": 112,
+  "hullId": "junk_pirates_spinerette_hat",
+  "hullName": "Hat",
+  "hullSize": "FRIGATE",
+  "shieldCenter": [
+    27.5,
+    -0.5
+  ],
+  "shieldRadius": 202,
+  "spriteName": "graphics/junk_pirates/ships/stations/junk_pirates_spinerette_hat.png",
+  "style": "LOW_TECH",
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "angle": 42,
+      "arc": 0,
+      "id": "WS0001",
+      "locations": [
+        14,
+        133.5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "SYSTEM"
+    },
+    {
+      "angle": -42,
+      "arc": 0,
+      "id": "WS0002",
+      "locations": [
+        14,
+        -134.5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "SYSTEM"
+    },
+    {
+      "angle": 26,
+      "arc": 0,
+      "id": "WS0003",
+      "locations": [
+        55,
+        56
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "SYSTEM"
+    },
+    {
+      "angle": -26,
+      "arc": 0,
+      "id": "WS0004",
+      "locations": [
+        55,
+        -57
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "SYSTEM"
+    },
+    {
+      "angle": 0,
+      "arc": 360,
+      "id": "LB 1",
+      "locations": [
+        22,
+        53,
+        7,
+        56
+      ],
+      "mount": "HIDDEN",
+      "size": "LARGE",
+      "type": "LAUNCH_BAY"
+    },
+    {
+      "angle": 0,
+      "arc": 360,
+      "id": "LB 2",
+      "locations": [
+        23,
+        -52.5,
+        9,
+        -60.5
+      ],
+      "mount": "HIDDEN",
+      "size": "LARGE",
+      "type": "LAUNCH_BAY"
+    }
+  ],
+  "width": 300
+}

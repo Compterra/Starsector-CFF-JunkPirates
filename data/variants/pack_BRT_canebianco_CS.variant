@@ -1,0 +1,52 @@
+{
+  "displayName": "Support",
+  "fluxCapacitors": 10,
+  "fluxVents": 12,
+  "goalVariant": true,
+  "hullId": "pack_BRT_canebianco",
+  "hullMods": [
+    "advancedshieldemitter",
+    "pointdefenseai",
+    "hardened_subsystems"
+  ],
+  "permaMods": [],
+  "quality": 0.5,
+  "variantId": "pack_BRT_canebianco_CS",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "lightag",
+        "WS0002": "lightag",
+        "WS0007": "taclaser",
+        "WS0008": "taclaser"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {}
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0010": "pack_affenpinscher"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {}
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {}
+    }
+  ],
+  "wings": [
+    "pack_shock_gunship_wing"
+  ]
+}

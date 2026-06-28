@@ -1,0 +1,61 @@
+{
+	"baseHullId":"pack_bullykutta",
+	"skinHullId":"pack_bullykutta_dogbox",
+	"hullName":"Dog Box",
+	"hullDesignation":"Cruiser",
+	"tags":["rare_bp"],
+	"tech":"Pirate",
+	"descriptionId":"pack_dogbox",  # optional
+	#"descriptionPrefix":"This is a frightening side-grade to the P.A.C.K. missile cruiser (the Bully Kutta), put in to use by pirate groups and changing the focus markedly by concentrating more on the provision of ballistic weaponry, and ditching most safety protocols.",
+	"spriteName":"graphics/pack/ships/pack_dogbox.png",
+	"baseValueMult":0.9,
+	"ordnancePoints":120,
+	"removeWeaponSlots":[], 		# ids
+	"removeEngineSlots":[], 		# indices, as engine slots have no id in the .ship file
+	"removeBuiltInMods":["pack_mesh"], 		# hullmod ids
+	"removeBuiltInWeapons":[], 		# weapon slot ids
+	"weaponSlotChanges":{
+		#"WS0001":{
+		#	"type": "MISSILE"
+		#},
+		#"WS0002":{
+		#	"type": "MISSILE"
+		#},
+		#"WS0003":{
+		#	"type": "MISSILE"
+		#},
+		#"WS0004":{
+		#	"type": "MISSILE"
+		#},
+		#"WS0005":{
+		#	"type": "MISSILE"
+		#},
+		#"WS0006":{
+		#	"type": "MISSILE"
+		#},
+		#"WS0007":{
+		#	"type": "MISSILE"
+		#},
+		#"WS0008":{
+		#	"type": "MISSILE"
+		#},
+		"WS0009":{
+			"type": "BALLISTIC"
+		},
+		"WS0010":{
+			"type": "BALLISTIC"
+		},
+		"WS0011":{
+			"type": "BALLISTIC"
+		},
+		"WS0012":{
+			"type": "BALLISTIC"
+		},
+		"WS0013":{
+			"type": "BALLISTIC"
+		},
+	},
+	"builtInMods":["safetyoverrides"],
+	"builtInWeapons":{
+    },
+}

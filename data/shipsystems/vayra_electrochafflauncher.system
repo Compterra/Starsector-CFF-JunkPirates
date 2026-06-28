@@ -1,0 +1,8 @@
+{
+	"id":"vayra_electrochafflauncher",
+	"type":"WEAPON",
+	"aiType":"FLARE",
+	
+	"weaponDataId":"vayra_electrochafflauncher",
+	"outOfUsesSound":"gun_out_of_ammo",
+}

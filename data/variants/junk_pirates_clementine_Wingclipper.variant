@@ -1,0 +1,42 @@
+{
+    "displayName": "Wingclipper",
+    "fluxCapacitors": 4,
+    "fluxVents": 9,
+    "hullId": "junk_pirates_clementine",
+    "hullMods": [],
+    "quality": 0.5,
+        "goalVariant": true,
+  "variantId": "junk_pirates_clementine_Wingclipper",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {"WS0006": "swarmer"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "junk_pirates_lexcimer",
+                "WS0002": "junk_pirates_lexcimer",
+                "WS0004": "lightag",
+                "WS0005": "lightag"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0003": "pulselaser"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {}
+        }
+    ]
+}

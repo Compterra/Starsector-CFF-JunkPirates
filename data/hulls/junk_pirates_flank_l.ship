@@ -1,0 +1,80 @@
+{
+  "bounds": [
+    -13.5,
+    -0.5,
+    11,
+    11.5,
+    18,
+    106.5,
+    74.5,
+    -3.5,
+    60.5,
+    -22,
+    20.5,
+    -20
+  ],
+  "builtInMods": [
+    "reduced_explosion",
+    "shared_flux_sink",
+    "missile_reload",
+    "junk_pirates_wibble_wobble"
+  ],
+  "builtInWings": [],
+  "center": [
+    114,
+    23.5
+  ],
+  "collisionRadius": 118,
+  "engineSlots": [],
+  "height": 108,
+  "hullId": "junk_pirates_flank_l",
+  "hullName": "Flank",
+  "hullSize": "FRIGATE",
+  "shieldCenter": [
+    30.5,
+    38
+  ],
+  "shieldRadius": 89,
+  "spriteName": "graphics/junk_pirates/ships/stations/junk_pirates_spinerette_flank_l.png",
+  "style": "LOW_TECH",
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "angle": 80,
+      "arc": 88,
+      "id": "WS0001",
+      "locations": [
+        44.5,
+        -0
+      ],
+      "mount": "TURRET",
+      "size": "MEDIUM",
+      "type": "BALLISTIC"
+    },
+    {
+      "angle": 83.5,
+      "arc": 72,
+      "id": "WS0002",
+      "locations": [
+        34.5,
+        -24.5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BALLISTIC"
+    },
+    {
+      "angle": 88.5,
+      "arc": 77,
+      "id": "WS0003",
+      "locations": [
+        65,
+        -17.5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BALLISTIC"
+    }
+  ],
+  "width": 152
+}

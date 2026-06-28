@@ -1,0 +1,44 @@
+{
+  "displayName": "Standard",
+  "fluxCapacitors": 8,
+  "fluxVents": 9,
+  "goalVariant": true,
+  "hullId": "junk_pirates_the_reaper",
+  "hullMods": [
+    "targetingunit",
+    "magazines",
+    "autorepair",
+    "heavyarmor"
+  ],
+  "permaMods": [],
+  "quality": 0,
+  "variantId": "junk_pirates_the_reaper_Standard",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0005": "junk_pirates_welder"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "flak",
+        "WS0002": "flak",
+        "WS0003": "flak",
+        "WS0004": "lightdualmg"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0006": "junk_pirates_lexcimer",
+        "WS0007": "irpulse"
+      }
+    }
+  ],
+  "wings": []
+}

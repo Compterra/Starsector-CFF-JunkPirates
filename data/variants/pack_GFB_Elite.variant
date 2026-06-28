@@ -1,0 +1,41 @@
+{
+  "displayName": "Elite",
+  "fluxCapacitors": 5,
+  "fluxVents": 6,
+  "goalVariant": true,
+  "hullId": "pack_GFB",
+  "hullMods": [
+    "advancedshieldemitter"
+  ],
+  "permaMods": [],
+  "quality": 0.5,
+  "variantId": "pack_GFB_Elite",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0003": "sabot",
+        "WS0004": "sabot"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "heavymauler",
+        "WS0002": "hveldriver"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0005": "vulcan"
+      }
+    }
+  ],
+  "wings": [
+    "pack_shock_gunship_wing"
+  ]
+}

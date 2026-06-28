@@ -1,0 +1,44 @@
+{
+  "displayName": "Strike",
+  "fluxCapacitors": 10,
+  "fluxVents": 18,
+  "goalVariant": true,
+  "hullId": "pack_sharpei",
+  "hullMods": [
+    "targetingunit"
+  ],
+  "permaMods": [],
+  "quality": 0,
+  "variantId": "pack_sharpei_Strike",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0001": "typhoon",
+        "WS0002": "typhoon"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "lightdualac",
+        "WS0004": "lightdualac"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0005": "pdlaser",
+        "WS0006": "pdlaser",
+        "WS0007": "pdlaser",
+        "WS0008": "pdlaser",
+        "WS0009": "pdlaser",
+        "WS0010": "pdlaser"
+      }
+    }
+  ],
+  "wings": []
+}

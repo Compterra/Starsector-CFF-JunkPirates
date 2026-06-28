@@ -1,0 +1,40 @@
+{
+  "quality":0.6,
+  "displayName": "Standard",
+  "fluxCapacitors": 5,
+  "fluxVents": 10,
+        "goalVariant": true,
+  "hullId": "pack_schnauzer_caomarelo",
+  "hullMods": ["targetingunit", "missleracks", "advancedoptics", "hardened_subsystems"],
+  "variantId": "pack_schnauzer_caomarelo_Standard",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0001": "harpoon",
+        "WS0002": "harpoon",
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "pdlaser",
+        "WS0004": "pdlaser",
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0005": "lightdualac"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {}
+    }
+  ]
+}

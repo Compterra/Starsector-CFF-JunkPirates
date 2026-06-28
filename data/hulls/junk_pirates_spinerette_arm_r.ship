@@ -1,0 +1,109 @@
+{
+  "bounds": [
+    49.5,
+    -40,
+    -2,
+    -22,
+    -2,
+    23,
+    42,
+    38,
+    86.5,
+    19,
+    117.5,
+    33,
+    160.5,
+    24.5,
+    191,
+    -0.5,
+    102.5,
+    -20
+  ],
+  "builtInMods": [
+    "shared_flux_sink",
+    "reduced_explosion",
+    "junk_pirates_wibble_wobble"
+  ],
+  "builtInWings": [],
+  "center": [
+    49,
+    14.5
+  ],
+  "collisionRadius": 201,
+  "engineSlots": [],
+  "height": 214,
+  "hullId": "junk_pirates_spinerette_arm_r",
+  "hullName": "Arm",
+  "hullSize": "FRIGATE",
+  "shieldCenter": [
+    92.5,
+    0.5
+  ],
+  "shieldRadius": 167.5,
+  "spriteName": "graphics/junk_pirates/ships/stations/junk_pirates_the_other_arm.png",
+  "style": "LOW_TECH",
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "angle": 33.5,
+      "arc": 166,
+      "id": "WS0001",
+      "locations": [
+        39,
+        36.5
+      ],
+      "mount": "TURRET",
+      "size": "MEDIUM",
+      "type": "UNIVERSAL"
+    },
+    {
+      "angle": -52,
+      "arc": 152,
+      "id": "WS0002",
+      "locations": [
+        39,
+        -35.5
+      ],
+      "mount": "TURRET",
+      "size": "MEDIUM",
+      "type": "UNIVERSAL"
+    },
+    {
+      "angle": 66,
+      "arc": 218,
+      "id": "WS0003",
+      "locations": [
+        138.5,
+        22
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "UNIVERSAL"
+    },
+    {
+      "angle": 52.5,
+      "arc": 200,
+      "id": "WS0004",
+      "locations": [
+        174,
+        15.5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "UNIVERSAL"
+    },
+    {
+      "angle": 4,
+      "arc": 35,
+      "id": "WS0005",
+      "locations": [
+        190,
+        0.5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "SYSTEM"
+    }
+  ],
+  "width": 97
+}

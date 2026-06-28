@@ -1,0 +1,30 @@
+{
+  "displayName": "Energy",
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "goalVariant": true,
+  "hullId": "junk_pirates_spinerette_arm_l",
+  "hullMods": [],
+  "permaMods": [],
+  "quality": 0,
+  "variantId": "junk_pirates_spinerette_arm_l_Energy",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "vayra_electrobeam",
+        "WS0002": "vayra_electrobeam"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "junk_pirates_lexcimer",
+        "WS0004": "junk_pirates_lexcimer"
+      }
+    }
+  ],
+  "wings": []
+}

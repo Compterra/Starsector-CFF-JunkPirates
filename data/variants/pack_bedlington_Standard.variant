@@ -1,0 +1,30 @@
+{
+  "displayName": "Standard",
+  "fluxCapacitors": 8,
+  "fluxVents": 10,
+  "goalVariant": true,
+  "hullId": "pack_bedlington",
+  "hullMods": [
+    "advancedshieldemitter"
+  ],
+  "permaMods": [],
+  "variantId": "pack_bedlington_Standard",
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "irpulse",
+        "WS0002": "irpulse"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "junk_pirates_cutlass"
+      }
+    }
+  ],
+  "wings": []
+}

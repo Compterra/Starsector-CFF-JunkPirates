@@ -1,0 +1,23 @@
+# Changelog
+
+## 3.5.5
+
+Restoration release for Starsector `0.98a-RC8`.
+
+- Updated dependency metadata for LazyLib and GraphicsLib.
+- Added/updated Nexerelin faction setup and compatibility data.
+- Added save-load recovery and relation cleanup work.
+- Added LunaLib settings support.
+- Added Starship Legends support.
+- Added Industrial Evolution and New Beginnings compatibility hooks.
+- Performed first-pass ship balance and variant cleanup.
+- Cleaned release folder for GitHub upload by removing editor backups and duplicate source archives.
+
+## Earlier 3.5.x Notes
+
+- Added Junk Pirates explorer activity and related intel.
+- Added ASP courier and hit-fleet activity.
+- Expanded Familia prominence, combat ships, and variants.
+- Added PACK Mesh built-in hullmod support for mixed fleets and mixed hulls.
+- Added decorative weapons and small visual touches to several ships, especially Boxer and Boxenstein.
+- Continued sprite and aesthetic cleanup across the fleet.

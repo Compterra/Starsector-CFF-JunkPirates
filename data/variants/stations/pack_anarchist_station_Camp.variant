@@ -1,0 +1,24 @@
+{
+  "displayName": "Anarchist Stockade",
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "goalVariant": true,
+  "hullId": "pack_anarchist_station2",
+  "hullMods": [],
+  "permaMods": [],
+  "quality": 0,
+  "variantId": "pack_anarchist_station_Camp",
+  "weaponGroups": [],
+  "modules": [
+  #station modules
+    {"WS0001": "pack_semi_broadsideModuleL_Standard"},
+        {"WS0002": "pack_partial_supportL_Standard"},
+        {"WS0003": "pack_small_missile1_Standard"},
+        {"WS0004": "module_armour5_Standard"},
+        {"WS0005": "module_armour5_Standard"},
+        {"WS0006": "pack_partial_supportR_Standard"},
+	{"WS0007": "pack_bastion1_Standard"},
+	{"WS0008": "pack_small_ballistic1_Standard"},
+  ],
+  "wings": []
+}

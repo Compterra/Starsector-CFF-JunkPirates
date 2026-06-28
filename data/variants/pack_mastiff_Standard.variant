@@ -1,0 +1,59 @@
+{
+  "displayName": "Standard",
+  "fluxCapacitors": 14,
+  "fluxVents": 29,
+  "goalVariant": true,
+  "hullId": "pack_mastiff",
+  "hullMods": [
+    "targetingunit",
+    "magazines"
+  ],
+  "permaMods": [],
+  "quality": 0.5,
+  "variantId": "pack_mastiff_Standard",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0001": "annihilatorpod",
+        "WS0002": "annihilatorpod"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "autopulse"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0004": "lrpdlaser",
+        "WS0005": "flak",
+        "WS0006": "flak",
+        "WS0007": "lrpdlaser",
+        "WS0008": "lrpdlaser",
+        "WS0009": "lrpdlaser",
+        "WS0010": "lrpdlaser",
+        "WS0013": "lrpdlaser"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0011": "reaper",
+        "WS0012": "reaper"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {}
+    }
+  ],
+  "wings": []
+}

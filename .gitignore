@@ -1,0 +1,28 @@
+# Starsector runtime output
+*.log
+starsector.log
+*.stackdump
+
+# Editor and art-tool backups
+*~
+*.bak
+*.old
+*.tmp
+*.kra~
+*.psd~
+Thumbs.db
+desktop.ini
+
+# Generated archives / local packaging
+jars/src.zip
+*.zip
+*.7z
+*.rar
+
+# Local IDE metadata
+.vscode/
+.idea/
+*.iml
+
+# OS metadata
+.DS_Store

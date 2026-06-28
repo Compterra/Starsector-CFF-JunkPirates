@@ -1,0 +1,47 @@
+{
+  "displayName": "Filthbag",
+  "fluxCapacitors": 3,
+  "fluxVents": 4,
+  "goalVariant": true,
+  "hullId": "junk_pirates_tangerine",
+  "hullMods": [
+    "hardened_subsystems",
+    "advancedoptics",
+    "magazines"
+  ],
+  "permaMods": [],
+  "quality": 0,
+  "variantId": "junk_pirates_tangerine_Filthbag",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0005": "junk_pirates_haymaker"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "ionbeam"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "ioncannon",
+        "WS0004": "ioncannon"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0002": "heavyburst"
+      }
+    }
+  ],
+  "wings": []
+}

@@ -1,0 +1,48 @@
+{
+  "displayName": "Support",
+  "fluxCapacitors": 12,
+  "fluxVents": 30,
+  "goalVariant": true,
+  "hullId": "junk_pirates_goat",
+  "hullMods": [
+    "advancedoptics",
+    "magazines"
+  ],
+  "permaMods": [],
+  "quality": 0,
+  "variantId": "junk_pirates_goat_CS",
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 1": "gravitonbeam",
+        "WS 2": "gravitonbeam"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 4": "pdburst",
+        "WS 5": "pdburst"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS 6": "pilum",
+        "WS 7": "pilum"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 3": "hil"
+      }
+    }
+  ],
+  "wings": []
+}

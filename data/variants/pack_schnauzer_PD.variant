@@ -1,0 +1,33 @@
+{
+  "displayName": "Point Defense",
+  "fluxCapacitors": 6,
+  "fluxVents": 9,
+  "goalVariant": true,
+  "hullId": "pack_schnauzer",
+  "hullMods": [
+    "advancedoptics"
+  ],
+  "permaMods": [],
+  "quality": 0,
+  "variantId": "pack_schnauzer_PD",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0005": "reaper"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "pdburst",
+        "WS0002": "pdburst",
+        "WS0003": "pdburst",
+        "WS0004": "pdburst"
+      }
+    }
+  ],
+  "wings": []
+}

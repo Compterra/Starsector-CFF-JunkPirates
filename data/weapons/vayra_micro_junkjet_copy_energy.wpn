@@ -1,0 +1,30 @@
+{
+  "id": "vayra_micro_junkjet_copy_energy",
+  "specClass": "projectile",
+  "type": "MISSILE",
+  "size": "SMALL",
+  "turretSprite": "graphics/weapons/missile_rack_open_m_4x_turret_base.png",
+  "hardpointSprite": "graphics/weapons/missile_rack_open_m_4x_hardpoint_base.png",
+  "turretOffsets": [8, -8, 8, 8, 8, -3, 8, 3],
+  "hardpointOffsets": [11, -8, 11, 8, 11, -3, 11, 3],
+  "turretAngleOffsets": [0, 0, 0, 0],
+  "hardpointAngleOffsets": [0, 0, 0, 0],
+  "barrelMode": "ALTERNATING",
+  "animationType": "SMOKE",
+  "renderHints": [RENDER_LOADED_MISSILES],
+  "smokeSpec": {
+    "particleSizeMin": 20,
+    "particleSizeRange": 20,
+    "cloudParticleCount": 3,
+    "cloudDuration": 1,
+    "cloudRadius": 10,
+    "blowbackParticleCount": 3,
+    "blowbackDuration": 2,
+    "blowbackLength": 30,
+    "blowbackSpread": 10,
+    "particleColor": [100, 100, 100, 200]
+  },
+  "projectileSpecId": "vayra_micro_junkjet_missile_energy",
+  "fireSoundTwo": "sabot_srm_fire",
+  "textureType": ROUGH
+}

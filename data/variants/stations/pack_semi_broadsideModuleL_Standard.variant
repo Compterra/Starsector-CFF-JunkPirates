@@ -1,0 +1,50 @@
+{
+  "displayName": "Combat Module",
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "goalVariant": true,
+  "hullId": "pack_semi_broadsideModuleL",
+  "hullMods": [],
+  "permaMods": [],
+  "quality": 0,
+  "variantId": "pack_semi_broadsideModuleL_Standard",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "autopulse",
+        "WS0002": "autopulse",
+        "WS0003": "plasma",
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0004": "flak",
+        "WS0005": "flak"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0006": "salamanderpod",
+        "WS0007": "vayra_junkjet_pod",
+        "WS0008": "harpoonpod"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0009": "lightag",
+        "WS0010": "vulcan",
+        "WS0011": "lightag",
+        "WS0012": "vulcan"
+      }
+    }
+  ],
+  "wings": []
+}

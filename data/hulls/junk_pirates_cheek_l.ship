@@ -1,0 +1,99 @@
+{
+  "bounds": [
+    -14,
+    7.5,
+    24.5,
+    39.5,
+    93,
+    69,
+    128.5,
+    47.5,
+    138.5,
+    -20,
+    102.5,
+    -33,
+    72.5,
+    -72.5,
+    -5,
+    -50
+  ],
+  "builtInMods": [
+    "reduced_explosion",
+    "chassis_storage",
+    "shared_flux_sink",
+    "missile_reload",
+    "junk_pirates_wibble_wobble"
+  ],
+  "builtInWings": [
+    "junk_pirates_latrodectus_wing",
+  ],
+  "center": [
+    94,
+    24.5
+  ],
+  "collisionRadius": 174.5,
+  "engineSlots": [],
+  "height": 190,
+  "hullId": "junk_pirates_cheek_l",
+  "hullName": "Cheek",
+  "hullSize": "FRIGATE",
+  "shieldCenter": [
+    70.5,
+    3.5
+  ],
+  "shieldRadius": 118,
+  "spriteName": "graphics/junk_pirates/ships/stations/junk_pirates_spinerette_cheek_l.png",
+  "style": "LOW_TECH",
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "angle": 72.5,
+      "arc": 183,
+      "id": "WS0001",
+      "locations": [
+        115,
+        54
+      ],
+      "mount": "TURRET",
+      "size": "LARGE",
+      "type": "UNIVERSAL"
+    },
+    {
+      "angle": 60,
+      "arc": 129,
+      "id": "WS0002",
+      "locations": [
+        124,
+        13.5
+      ],
+      "mount": "TURRET",
+      "size": "MEDIUM",
+      "type": "UNIVERSAL"
+    },
+    {
+      "angle": 21.5,
+      "arc": 129,
+      "id": "WS0003",
+      "locations": [
+        124,
+        -16
+      ],
+      "mount": "TURRET",
+      "size": "MEDIUM",
+      "type": "UNIVERSAL"
+    },
+    {
+      "angle": 36,
+      "arc": 198,
+      "id": "WS0004",
+      "locations": [
+        146.5,
+        -1
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "UNIVERSAL"
+    }
+  ],
+  "width": 181
+}

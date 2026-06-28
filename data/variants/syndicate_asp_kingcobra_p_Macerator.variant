@@ -1,0 +1,66 @@
+{
+  "displayName": "Macerator",
+  "fluxCapacitors": 20,
+  "fluxVents": 23,
+  "goalVariant": true,
+  "hullId": "syndicate_asp_kingcobra_p",
+  "hullMods": [
+    "turretgyros",
+    "targetingunit",
+    "advancedshieldemitter",
+    "fluxbreakers"
+  ],
+  "permaMods": [],
+  "quality": 0,
+  "variantId": "syndicate_asp_kingcobra_p_Macerator",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0003": "cyclone"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "autopulse"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0002": "pdburst",
+        "WS0007": "pdburst",
+        "WS0008": "taclaser",
+        "WS0009": "lrpdlaser",
+        "WS0010": "pdburst",
+        "WS0011": "pdlaser",
+        "WS0012": "lrpdlaser"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0004": "heavyblaster"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0005": "locust",
+        "WS0006": "salamanderpod",
+        "WS0013": "locust"
+      }
+    }
+  ],
+  "wings": [
+    "syndicate_asp_bite_wing",
+    "syndicate_asp_venom_wing",
+    "syndicate_asp_venom_wing"
+  ]
+}

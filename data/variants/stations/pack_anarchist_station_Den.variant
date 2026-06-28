@@ -1,0 +1,20 @@
+{
+  "displayName": "Anarchist Den",
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "goalVariant": true,
+  "hullId": "pack_anarchist_station1",
+  "hullMods": [],
+  "permaMods": [],
+  "quality": 0,
+  "variantId": "pack_anarchist_station_Den",
+  "weaponGroups": [],
+  "modules": [
+       {"WS0001": "pack_semi_broadsideModuleL_Standard"},
+       {"WS0002": "pack_minimal_supportL_Standard"},
+       {"WS0003": "pack_small_missile1_Standard"},
+       {"WS0004": "pack_small_ballistic1_Standard"},
+       {"WS0005": "pack_partial_supportR_Standard"},
+  ],
+  "wings": []
+}

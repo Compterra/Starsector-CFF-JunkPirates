@@ -1,0 +1,11 @@
+{
+    "masterVersionFile":"https://raw.githubusercontent.com/Compterra/Starsector-CFF-JunkPirates/main/junk_pirates.version",
+    "modName":"Junk Pirates / ASP / PACK (Release)",
+    "modThreadId":161,
+    "modVersion":
+    {
+        "major":3,
+        "minor":5,
+        "patch":5
+    }
+}

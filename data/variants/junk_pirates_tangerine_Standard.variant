@@ -1,0 +1,40 @@
+{
+  "displayName": "Standard",
+  "fluxCapacitors": 10,
+  "fluxVents": 7,
+  "goalVariant": true,
+  "hullId": "junk_pirates_tangerine",
+  "hullMods": [
+    "hardened_subsystems",
+    "auxiliarythrusters"
+  ],
+  "permaMods": [],
+  "quality": 0,
+  "variantId": "junk_pirates_tangerine_Standard",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0005": "junk_pirates_haymaker"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "junk_pirates_scatterpd",
+        "WS0004": "junk_pirates_scatterpd"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "junk_pirates_cutlass",
+        "WS0002": "junk_pirates_cutlass"
+      }
+    }
+  ],
+  "wings": []
+}

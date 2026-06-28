@@ -1,0 +1,39 @@
+{
+  "displayName": "Standard",
+  "fluxCapacitors": 5,
+  "fluxVents": 7,
+        "goalVariant": true,
+  "hullId": "junk_pirates_mandarine",
+  "hullMods": [
+    "targetingunit",
+    "unstable_injector"
+  ],
+  "permaMods": [],
+  "quality": 0,
+  "variantId": "junk_pirates_mandarine_Standard",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS 007": "vayra_junkjet_rack",
+        "WS0003": "vayra_junkjet_rack"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0004": "vayra_scrapcannon"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "vulcan",
+        "WS0002": "vulcan"
+      }
+    }
+  ]
+}

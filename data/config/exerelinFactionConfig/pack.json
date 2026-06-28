@@ -1,0 +1,72 @@
+{
+    "playableFaction":true,
+    "corvusCompatible":true,
+    "colonyExpeditionChance":1.5,
+    "rebelFleetSuffix":"Anarchists",
+    "directoryUseShortName":true,
+    
+    "marketSpawnWeight":0.5,
+    
+    "freeMarket":true,
+	
+    "startRelationships":{
+        "hegemony": -0.15,
+        "tritachyon": -0.25,
+        "pirates": -0.2,
+        "luddic_church": -0.1,
+        "luddic_path": -0.35,
+        "sindrian_diktat": -0.2,
+        "independent": 0.25,
+        "persean": 0.35,
+        "junk_pirates": 0.35,
+        "syndicate_asp": 0,
+        "blackrock_driveyards": 0,
+        "neutrinocorp": -0.25,
+        "vic": -0.1
+    },
+
+    "diplomacyPositiveChance":{ "independent":1.2, "persean":1.2, "junk_pirates":1.2 },
+    "diplomacyNegativeChance":{ "luddic_path":1.4, "tritachyon":1.1, "sindrian_diktat":1.1 },
+    "morality":"good",
+
+    "alignments":{
+        "diplomatic":0.5,
+        "ideological":1,
+	"militarist":-1
+    },
+    
+    "startShipsSolo":[
+    ["pack_wirefox_Standard"],
+    ["pack_bedlington_canebianco_Standard"],
+    ],
+    "startShipsCombatSmall":[
+      ["pack_bedlington_Standard", "pack_BRT_Guard", "pack_schnauzer_rothund_Standard"],
+      ["pack_pitbull_Standard", "pack_schnauzer_caomarelo_PD", "pack_wirefox_caomarelo_Standard"]
+    ],
+    "startShipsTradeSmall":[["pack_labrador_Standard", "pack_samoyed_Standard", "pack_wirefox_sh_CS"]],
+    "startShipsCombatLarge":[
+      ["pack_mastiff_Standard", "pack_pitbull_Strike", "pack_ridgeback_Standard"],
+      ["pack_mastiff_Elite", "pack_komondor_Standard", "pack_BRT_Guard"]
+    ],
+    "startShipsTradeLarge":[["pack_ridgeback_Standard", "pack_ridgeback_x_Standard", "pack_labrador_Standard"]],
+    "startShipsCarrierSmall":[["pack_GFB_Standard", "pack_GFB_Elite", "pack_ridgeback_x_rothund_Standard"]],
+    "startShipsCarrierLarge":[["pack_spinone_Strike", "pack_sharpei_Standard", "pack_BRT_Support"]],
+    
+    "defenceStations":[
+        {"ids":["orbitalstation", "battlestation", "starfortress"], "weight":0.5},
+        {"ids":["orbitalstation_mid", "battlestation_mid", "starfortress_mid"]},
+        {"ids":["orbitalstation_high", "battlestation_high", "starfortress_high"], "weight":0.5},
+    ],
+    
+    "industrySeeds":[
+        {"id":"heavyindustry", "mult":0.1},
+        {"id":"lightindustry", "mult":0.1},
+    ],
+    
+    "bonusSeeds":[
+        {"id":"aiCore_any", "mult":0.2},
+    ],
+    "startSpecialItems":[
+        [["junk_pirates_pack_bp", ""]],
+	],
+}

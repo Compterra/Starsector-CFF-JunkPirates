@@ -1,0 +1,58 @@
+{
+  "displayName": "Elite",
+  "fluxCapacitors": 10,
+  "fluxVents": 30,
+  "goalVariant": true,
+  "hullId": "pack_mastiff",
+  "hullMods": [
+    "targetingunit"
+  ],
+  "permaMods": [],
+  "quality": 0.5,
+  "variantId": "pack_mastiff_Elite",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "plasma"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0004": "pdlaser",
+        "WS0005": "lightdualmg",
+        "WS0006": "lightdualmg",
+        "WS0013": "pdlaser"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0001": "annihilatorpod",
+        "WS0002": "annihilatorpod",
+        "WS0011": "annihilator",
+        "WS0012": "annihilator"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0007": "ioncannon",
+        "WS0008": "ioncannon",
+        "WS0009": "ioncannon",
+        "WS0010": "ioncannon"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {}
+    }
+  ],
+  "wings": []
+}

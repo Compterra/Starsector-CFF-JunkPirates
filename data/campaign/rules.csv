@@ -1,0 +1,240 @@
+id,trigger,conditions,script,text,options,notes
+# Trade panel flavor text,,,,,,
+flavorTextMarketFireworksFactory,TradePanelFlavorText,"$global.tradePanelMode == MARKET
+$faction.id == syndicate_asp
+$market.id == fireworks_factory score:2","AddText ""The Factory's docking bay churns with belt miners, courier tugs, and exhausted crews moving ore under Syndicate schedules. Most operators earn just enough to return for another run after fees, fuel, and protection are settled. ASP Marines stand at every junction, polished armor reflecting work lights and bad decisions."" marketFlavorTextColor",,,
+flavorTextMarketNomde,TradePanelFlavorText,"$global.tradePanelMode == MARKET
+$faction.id == junk_pirates
+$market.id == nomde_plume score:2","AddText ""N.O.M.D.E. never stops rumbling. Volatile-harvesting systems shake the decks hard enough to make polite conversation pointless, while personnel routes cross too near the gas conduits for comfort. New arrivals receive foam earplugs, breathing gear, and a station map with the unsafe sections marked in cheerful colors."" marketFlavorTextColor",,,
+flavorTextMarketKarkov,TradePanelFlavorText,"$global.tradePanelMode == MARKET
+$faction.id == junk_pirates
+$market.id == karkov_academy score:2","AddText ""Karkov Academy shakes under the steady percussion of debris on armor. Welding drones drift beneath vaulted ceilings, patching the station faster than Breh'Inni can bruise it. Cadets in blue and red uniforms argue, drill, gamble, and pretend not to be afraid. Above them hangs the portrait of Karkov herself, a naval commander remembered with more enthusiasm than accuracy."" marketFlavorTextColor",,,
+flavorTextMarketGlory,TradePanelFlavorText,"$global.tradePanelMode == MARKET
+$faction.id == junk_pirates
+$market.id == glory score:2","AddText ""The hab-tubes of Glory are never truly quiet. Laughter, argument, machine-song, and distant pressure groans move through bronze-tinged ceramic corridors. Public thoroughfares are crowded and loud; workshops and family spaces behind heavy doors fall silent as strangers pass. Everywhere, the red shadow of Breh'Inni is worked into paint, cloth, and metal."" marketFlavorTextColor",,,
+flavorTextMarketEarBurns,TradePanelFlavorText,"$global.tradePanelMode == MARKET
+$faction.id == independent
+$market.id == ear_burns score:2","AddText ""The artificial, dendritically branching network of high-pressure, radiation-proof habitations on this near-star world are oppressive and the atmosphere is thick. Nevertheless the pirates, brigands and artists that call this place home are unusually warm to visitors. Any visitor to this frontier world is given a free reign, and treated with great respect as a matter of course - those that live here are safe in the knowledge that any misstep will quickly see them ejected on to the exceptionally hot surface of the planet that is only ever a few tens of metres away from anywhere you could ever be."" marketFlavorTextColor",,,
+flavorTextMarketPaddington,TradePanelFlavorText,"$global.tradePanelMode == MARKET
+$faction.id == syndicate_asp
+$market.id == paddington score:2","AddText ""Paddington sells itself constantly: courier reliability, clean berths, low fees, fast contracts, smiling agents. The adverts are bright enough to feel medicinal. The locals look healthy, busy, and careful with their words, especially near the corridors where ASP security stops wearing customer-service colors."" marketFlavorTextColor",,,
+flavorTextMarketYogi,TradePanelFlavorText,"$global.tradePanelMode == MARKET
+$faction.id == independent
+$market.id == yogi score:2","AddText ""The smell of soap is all-encompassing, a (fortunate) by-product of whatever is going on in the ubiquitous chemical processing filtration plants throughout Yogi."" marketFlavorTextColor",,,
+flavorTextMarketDartmouth,TradePanelFlavorText,"$global.tradePanelMode == MARKET
+$faction.id == junk_pirates
+$market.id == dartmouth score:2","AddText ""Dartmouth's dormant hab-tubes feel like a held breath. The corridors are colder, quieter, and less certain than those of Glory, with old Domain ceramics exposed beneath newer Junk repairs. Locals speak softly here, as if the station is sleeping rather than dead."" marketFlavorTextColor",,,
+flavorTextMarketChristchurch,TradePanelFlavorText,"$global.tradePanelMode == MARKET
+$faction.id == pack
+$market.id == christchurch score:2","AddText ""Christchurch carries the sound of a society unpacking itself. The main tubes are orderly, sparse, and crowded with work crews marking doors, ration points, and militia posts with the three-toed paw. Locals speak of the Exodus as if it is both a victory and a bill that has finally come due."" marketFlavorTextColor",,,
+flavorTextMarketPetra,TradePanelFlavorText,"$global.tradePanelMode == MARKET
+$faction.id == pack
+$market.id == petra score:2","AddText ""A woven Three-Toed Paw hangs at the dock gate, old enough to be tradition and new enough to smell of fresh dye. The locals welcome visitors with careful warmth, then point out the forbidden areas with absolute seriousness. A public holo-loop advertises opportunities on Christchurch while the poisoned sky of Petra presses against every external camera feed."" marketFlavorTextColor",,,
+flavorTextMarketFinnigans,TradePanelFlavorText,"$global.tradePanelMode == MARKET
+$faction.id == pirates
+$market.id == finnigans score:2","AddText ""Ship traffic is busy with the movement of freighters and light escorts - there are those bringing minerals on-board the station and those taking them further afield. Inventory system holo-projections blink in and out of existence as dockers process loads, with automated cranes and drone-shuttles sliding along rails and through the volume of the bay organising kiloton upon kiloton of the asteroidal hoard."" marketFlavorTextColor",,,
+flavorTextMarketBearspit,TradePanelFlavorText,"$global.tradePanelMode == MARKET
+$faction.id == pirates
+$market.id == bear_pit score:2","AddText ""Visitors are less common at this sparsely populated station, and the folk around the place tend to smile in a sinister way. Hawkers hand out invites to phenomemonally expensive-to-view no-rules fight events, giving away luridly coloured drinks in bulbous smoking vials to sweeten the invite. Unexplained dark stains streak against most walls."" marketFlavorTextColor",,,
+,,,,,,
+anarchistStationFleetOpenDefault,BeginFleetEncounter,"$isStation
+$faction.id == junk_pirates_technicians
+!$printedDesc",$printedDesc = true 0,"The Anarchist settlement fills the tactical display like a welded-together organ, ugly with armor, antennae, and habitation blisters. A cloud of life signs moves across the outer hull.
+
+The image tightens on figures working in vacuum without visible suits. Some are human. Some are close enough for the distinction to feel worse. Cybernetics flare on the scan as fighter craft begin to spill from recessed bays.
+
+This station is awake, well defended, and unlikely to negotiate.",,
+anarchistStationFleetOpenDamaged,BeginFleetEncounter,"$isStation
+$damagedStation
+$faction.id == junk_pirates_hounds
+!$printedDesc",$printedDesc = true 0,"The damaged Anarchist settlement fills the tactical display, its hull patched with scorched plates and improvised braces. A small cloud of life signs still moves across the exterior.
+
+The image tightens on figures working in vacuum without visible suits. Some are human. Some are close enough. Fighter engines spark inside the superstructure as the defenders prepare what remains of the station.
+
+It is wounded, not helpless.",,
+junkpiratesSpineretteOpenDialog,OpenInteractionDialog,$customType == junk_pirates_spinerette_active score:1000,"JunkPiratesLostTechSalvageGen
+ShowDefaultVisual
+FireBest SalvageCheckHostile","Your $shipOrFleet approaches the Automata Cloud.
+
+Sensors resolve thousands of discrete energy signatures arranged in a loose, branching structure rooted planetside. The densest returns sit fixed in geostationary orbit, pulsing with the regularity of industry and the patience of something that has never needed to explain itself.",,
+junkpiratesSpineretteDefenders,TriggerAutomatedDefenses,$customType == junk_pirates_spinerette_active score:1000,JunkPiratesLostTechDefenderInteraction,"As your $shipOrFleet moves closer, the glow from below brings a mechanical ballet into focus: drones, tendrils, and fabrication rigs moving through a planetary-scale exercise in mining, construction, or repair.
+
+Then the motion changes. Not stopping, exactly. Not panicking. Reorienting.
+
+The cloud has noticed you.",,
+,,,,,,
+#ASP Courier Flavour Text,,,,,,
+greetingAspItemsFriendly,OpenCommLink,"$aspCourierFleetITEMS score:1000
+$faction.friendlyToPlayer","$menuState = fleetConvMain 0
+FireAll PopulateOptions","""Hi, friend. Can this wait? We're on the clock here.""",,
+greetingAspItemsNeutral,OpenCommLink,"$aspCourierFleetITEMS score:1000
+$faction.neutralToPlayer","$menuState = fleetConvMain 0
+FireAll PopulateOptions","""I'm sorry but we can't be kept long, we're on important Syndicate Business.""",,
+greetingAspItemsHostile,OpenCommLink,"$aspCourierFleetITEMS score:1000
+$faction.hostileToPlayer",$ignorePlayerCommRequests = true 1,All requests for comms are being denied.,,
+greetingAspMoneyFriendly,OpenCommLink,"$aspCourierFleetMONEY score:1000
+$faction.friendlyToPlayer","$menuState = fleetConvMain 0
+FireAll PopulateOptions","""Hi, friend. Can this wait? We're on the clock here.""",,
+greetingAspMoneyNeutral,OpenCommLink,"$aspCourierFleetMONEY score:1000
+$faction.neutralToPlayer","$menuState = fleetConvMain 0
+FireAll PopulateOptions","""I'm sorry but we can't be kept long, we're on important Syndicate Business.""",,
+greetingAspMoneyHostile,OpenCommLink,"$aspCourierFleetMONEY score:1000
+$faction.hostileToPlayer",$ignorePlayerCommRequests = true 1,All requests for comms are being denied.,,
+greetingAspVIPFriendly,OpenCommLink,"$aspCourierFleetVIP score:1000
+$faction.friendlyToPlayer","$menuState = fleetConvMain 0
+FireAll PopulateOptions","""Hi, friend. Can this wait? We're on the clock here.""",,
+greetingAspVIPNeutral,OpenCommLink,"$aspCourierFleetVIP score:1000
+$faction.neutralToPlayer","$menuState = fleetConvMain 0
+FireAll PopulateOptions","""I'm sorry but we can't be kept long, we're on important Syndicate Business.""",,
+greetingAspVIPHostile,OpenCommLink,"$aspCourierFleetVIP score:1000
+$faction.hostileToPlayer",$ignorePlayerCommRequests = true 1,"$personRank appears over the comms channel: ""We are carrying someone of extreme importance and any interference will be dealt with appropriately. Back off.""",,
+greetingAspPrisonerFriendly,OpenCommLink,"$aspCourierFleetPRISONER score:1000
+$faction.friendlyToPlayer","$menuState = fleetConvMain 0
+FireAll PopulateOptions","""Hi, friend. Can this wait? We're on the clock here.""",,
+greetingAspPrisonerNeutral,OpenCommLink,"$aspCourierFleetPRISONER score:1000
+$faction.neutralToPlayer","$menuState = fleetConvMain 0
+FireAll PopulateOptions","""I'm sorry but we can't be kept long, we're on important Syndicate Business.""",,
+greetingAspPrisonerHostile,OpenCommLink,"$aspCourierFleetPRISONER
+$faction.hostileToPlayer",$ignorePlayerCommRequests = true 1,"$personRank appears over the comms channel: ""We are willing to defend ourselves and are appropriately armed. Any interference will see ramifications.""",,
+#ASP Normal Flavour text,,,,,,
+greetingAspFriendly,OpenCommLink,"$faction.id == syndicate_asp
+$faction.friendlyToPlayer
+!$aspCourierFleetITEMS
+!$aspCourierFleetVIP
+!$aspCourierFleetPRISONER
+!$aspCourierFleetMONEY","$menuState = fleetConvMain 0
+FireAll PopulateOptions","""Hi, friend. Can this wait? We're on the clock here.""",,
+greetingAspHostileWeaker,OpenCommLink,"$faction.id == syndicate_asp
+$faction.hostileToPlayer
+$relativeStrength < 0
+!$aspCourierFleetITEMS
+!$aspCourierFleetVIP
+!$aspCourierFleetPRISONER
+!$aspCourierFleetMONEY",$ignorePlayerCommRequests = true 1,All requests for comms are being denied.,,
+greetingAspHostileWeakerDefiant,OpenCommLink,"$faction.id == syndicate_asp
+$faction.hostileToPlayer
+$relativeStrength < 0
+$weakerThanPlayerButHolding
+!$aspCourierFleetITEMS
+!$aspCourierFleetVIP
+!$aspCourierFleetPRISONER
+!$aspCourierFleetMONEY",$ignorePlayerCommRequests = true 1,All requests for comms are being denied.,,
+greetingAspHostileStronger,OpenCommLink,"$faction.id == syndicate_asp
+$faction.hostileToPlayer
+$relativeStrength >= 0
+!$aspCourierFleetITEMS
+!$aspCourierFleetVIP
+!$aspCourierFleetPRISONER
+!$aspCourierFleetMONEY",$ignorePlayerCommRequests = true 1,All requests for comms are being denied.,,
+greetingAspNeutral,OpenCommLink,"$faction.id == syndicate_asp
+$faction.neutralToPlayer
+!$aspCourierFleetITEMS
+!$aspCourierFleetVIP
+!$aspCourierFleetPRISONER
+!$aspCourierFleetMONEY","$menuState = fleetConvMain 0
+FireAll PopulateOptions","""Associated Starline Parcels. We are on contract and behind schedule. State your business.""",,
+#PACK Normal Flavour text,,,,,,
+greetingPackFriendly,OpenCommLink,"$faction.id == pack
+$faction.friendlyToPlayer","$menuState = fleetConvMain 0
+FireAll PopulateOptions","""Signal received. Good to hear a friendly voice out here.""",,
+greetingPackHostileWeaker,OpenCommLink,"$faction.id == pack
+$faction.hostileToPlayer
+$relativeStrength < 0",$ignorePlayerCommRequests = true 1,All requests for comms are being denied.,,
+greetingPackHostileWeakerDefiant,OpenCommLink,"$faction.id == pack
+$faction.hostileToPlayer
+$relativeStrength < 0
+$weakerThanPlayerButHolding",$ignorePlayerCommRequests = true 1,All requests for comms are being denied.,,
+greetingPackHostileStronger,OpenCommLink,"$faction.id == pack
+$faction.hostileToPlayer
+$relativeStrength >= 0",$ignorePlayerCommRequests = true 1,All requests for comms are being denied.,,
+greetingPackNeutral,OpenCommLink,"$faction.id == pack
+$faction.neutralToPlayer","$menuState = fleetConvMain 0
+FireAll PopulateOptions","""Can we help you?""",,
+#JP Explorer Flavour Text,,,,,,
+greetingJUNKExplorerNeutral,OpenCommLink,"$entity.junkPirateExplorers score:1000
+$faction.neutralToPlayer","$menuState = fleetConvMain 0
+FireAll PopulateOptions","""Dream of the Tangerine? So do we all, but best not to spend too long on one.""
+OR
+""Why don't the hab tubes break, you may ask? It is purely the force of our will. Our nature. We bind the planet, stitched up by our souls.""
+OR
+""If man seeks perfection, he is seeking failure. For the man who achieves perfection has failed.""
+OR
+""There are millions of people floating around this little sector of ours. All of them are people, not all of them are leaders.""
+OR
+""Sometimes, $playerName, it just rains, you know?""",,
+greetingJUNKExplorerHostileStronger,OpenCommLink,"$entity.junkPirateExplorers score:1000
+$faction.hostileToPlayer
+$relativeStrength >= 0",$ignorePlayerCommRequests = true 1,"""Remember, please, do not seek perfection. In fact, seek the opposite. Seek the purest kind of chaos, because then anything can happen.""
+OR
+""Perfection is death, $playerName. See you around, maybe not in this life.""
+OR
+""The conclusion of it all, really, is nothing. It's not true to say 'nothing is PERFECT', more accurately 'perfect IS nothing'. You are perfect, $playerName.""
+OR
+""I would make the sincere recommendation that the best you can do is enjoy it.""
+OR
+""We fight, not because we are angry. We fight, not because we are right. We fight, because YOU are wrong.""
+OR
+""When you strive to make the little man your friend; you make him weaker. When you strive to make the big man your friend; he will take your world.""",,
+greetingJUNKExplorerHostileWeakerDefiant,OpenCommLink,"$entity.junkPirateExplorers score:1000
+$faction.hostileToPlayer
+$relativeStrength < 0
+$weakerThanPlayerButHolding",$ignorePlayerCommRequests = true 1,"""Remember, please, do not seek perfection. In fact, seek the opposite. Seek the purest kind of chaos, because then anything can happen.""
+OR
+""Perfection is death, $playerName.""
+OR
+""The conclusion of it all, really, is nothing. It's not true to say 'nothing is PERFECT', more accurately 'perfect IS nothing'. You are perfect, $playerName.""
+OR
+""I would make the sincere recommendation that the best we can do is enjoy it.""
+OR
+""We fight, not because we are angry. We fight, not because we are right. We fight, because YOU are wrong.""
+OR
+""When you strive to make the little man your friend; you make him weaker. When you strive to make the big man your friend; he will take your world.""",,
+greetingJUNKExplorerHostileWeaker,OpenCommLink,"$entity.junkPirateExplorers score:1000
+$faction.hostileToPlayer
+$relativeStrength < 0",$ignorePlayerCommRequests = true 1,"""Remember, please, do not seek perfection. In fact, seek the opposite. Seek the purest kind of chaos, because then anything can happen.""
+OR
+""Perfection is death, $playerName.""
+OR
+""The conclusion of it all, really, is nothing. It's not true to say 'nothing is PERFECT', more accurately 'perfect IS nothing'.""
+OR
+""I would make the sincere recommendation that the best we can do is enjoy it.""
+OR
+""When you strive to make the little man your friend; you make him weaker. When you strive to make the big man your friend; he will take your world.""",,
+greetingJUNKExplorerFriendly,OpenCommLink,"$entity.junkPirateExplorers score:1000
+$faction.friendlyToPlayer","$menuState = fleetConvMain 0
+FireAll PopulateOptions","""My advice to you, $playerName, is that happiness is just the way your brain takes on certain chemicals. Sometimes you can ... encourage ... those chemicals by having a near-death experience in a starship.""
+OR
+""If it doesn't look right, it doesn't mean it isn't right. If people choose to rewrite what is 'right', that is not your problem.""
+OR
+""If you're the only one carrying an opinion in a room of a hundred people, it probably means you are the one who has got it right.""
+OR
+""Who is the King? Who are you? He has chosen to walk round with a big target on his back and the weight of our great lands around his shoulders. Who do you think is really holding the power?""
+OR
+""If you want to make waves, $playerName - don't try and control the water - just rearrange the sea bed.""
+OR
+""Its cold outside, theres no kind of atmosphere. Do you think we are all alone, $playerName? More or less.""
+OR
+""You know who made these tubes? The tubes that hold tight as the Glorious plates shift around us and huge rifts of ammonia ice drift right into us? It was us. We made them, with the force of our spirit alone.""",,
+,,,,,,
+# JUNK fleet greeting lines,,,,,,
+greetingJUNKFriendly,OpenCommLink,"$faction.id == junk_pirates
+$faction.friendlyToPlayer
+!$entity.junkPirateExplorers","$menuState = fleetConvMain 0
+FireAll PopulateOptions","""Hello, Friend. Her red light warms both of us, tonight.""",,
+greetingJUNKHostileWeaker,OpenCommLink,"$faction.id == junk_pirates
+$faction.hostileToPlayer
+$relativeStrength < 0
+!$entity.junkPirateExplorers",$ignorePlayerCommRequests = true 1,"""Know this - my friends don't forget easily.""",cutCommLink:Cut the comm link,
+greetingJUNKHostileWeakerDefiant,OpenCommLink,"$faction.id == junk_pirates
+$faction.hostileToPlayer
+$relativeStrength < 0
+$weakerThanPlayerButHolding
+!$entity.junkPirateExplorers",$ignorePlayerCommRequests = true 1,"$personRank laughs over the comm link. ""Wish me luck $playerName.""",cutCommLink:Cut the comm link,
+greetingJUNKHostileStronger,OpenCommLink,"$faction.id == junk_pirates
+$faction.hostileToPlayer
+$relativeStrength >= 0
+!$entity.junkPirateExplorers",$ignorePlayerCommRequests = true 1,"""This will be fun.""",cutCommLink:Cut the comm link,
+greetingJUNKNeutral,OpenCommLink,"!$entity.junkPirateExplorers
+$faction.id == junk_pirates
+$faction.neutralToPlayer","$menuState = fleetConvMain 0
+FireAll PopulateOptions","""You are close enough to be interesting and not close enough to be trusted. Speak.""",,

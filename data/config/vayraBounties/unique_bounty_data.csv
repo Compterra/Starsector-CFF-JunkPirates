@@ -1,0 +1,38 @@
+bounty_id,level,rank,firstName,lastName,captainPersonality,fleetName,flagshipName,gender,faction,portrait,greetingText,suppressIntel,postedByFaction,creditReward,repReward,intelText,flagshipVariantId,fleetVariantIds,minimumFleetFP,playerFPScalingFactor,chanceToAutoRecover,specialItemRewards,neverSpawnUnlessBountiesCompleted,neverSpawnWhenFactionHostile,neverSpawnWhenFactionNonHostile,neverSpawnBeforeCycle,neverSpawnBeforeLevel,neverSpawnBeforeFleetPoints
+junk_pirates_tangerine_bounty_m,20,spaceCaptain,Pulchritude,Circumstance,aggressive,The Unusual Circumstances 2nd XI,Sally,MALE,pirates,graphics/portraits/junk_pirates_tangoface_m.png,"Ha ha ha! Welcome friend! I assume you are not here to dance? If you die, if I die? It matters not because I have seen … but just a glimpse of all time, in the same time! And it is beautiful! I am, we are complete!",FALSE,junk_pirates,80000,8,"After the Tangerine development programme was abandoned for doing various unspeakable things to both people and local relativity, the charismatic siblings Pulchritude and Wayward Circumstance both made a break for it - each with a highly experimental version of this, itself a highly experimental ship.
+
+These are good folk, but the simple matter is that even for us, we went too far. Please go and pay Pulchritude a visit and … deal with him, he may even be happy to see you.",junk_pirates_tangerine_blue_Assault,"junk_pirates_octopus_Standard, junk_pirates_sickle_Strike, junk_pirates_satsuma_Frightener, junk_pirates_mandarine_Standard, junk_pirates_tangerine_Standard, junk_pirates_clementine_Standoff, junk_pirates_langoustine_Standard, junk_pirates_langoustine_Strike",80,1.1,1,,,FALSE,FALSE,206,1,1
+junk_pirates_tangerine_bounty_f,20,spaceCaptain,Wayward,Circumstance,aggressive,The Unusual Circumstances,Blue Bertha,FEMALE,pirates,graphics/portraits/junk_pirates_tangoface_f.png,"Hello. Have you seen my brother anywhere? I keep meaning to remind him about Mother’s birthday, he always seems to forget.",FALSE,junk_pirates,120000,12,"After the Tangerine development programme was abandoned for doing various unspeakable things to both people and local relativity, the charismatic siblings Pulchritude and Wayward Circumstance both made a break for it - each with a highly experimental version of this, itself a highly experimental ship.
+
+She is at heart a good person, with strong values. The ship has pushed that aside though, from what we can see. We’ve located Wayward and would ask that you deal with her and … that ship.",junk_pirates_tangerine_blue_CS,"junk_pirates_orca_Standard, junk_pirates_sickle_Standard, junk_pirates_satsuma_Frightener, junk_pirates_mandarine_Standard, junk_pirates_tangerine_Standard, junk_pirates_tangerine_Standard, junk_pirates_clementine_Wingclipper, junk_pirates_langoustine_Standard, junk_pirates_langoustine_Strike, junk_pirates_orcenstein_Elite, junk_pirates_satsuma_Standard, junk_pirates_tangerine_Standard",120,1.2,1,,junk_pirates_tangerine_bounty_m,FALSE,FALSE,206,1,1
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# NOTES,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# bounty_id : line ID. Must be unique across all mods. I recommend a prefix,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# level : character level of bounty captain,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# rank : must match a rank ID in Ranks,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# firstName : bounty captain's first name,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# lastName : bounty captain's last name,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# captainPersonality : must match a value from Personalities,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# fleetName : full name of bounty fleet,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# flagshipName : name of flagship. Needs to include prefix as it won't have it otherwise,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# gender : must match a gender enum in FullName,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# faction : faction id for bounty fleet and captain,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# portrait : filepath for bounty portrait. Must be loaded by the game,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# greetingText : full text that displays if/when you open comms with bounty fleet,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# suppressIntel : if TRUE do not show intel event when bounty spawns,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# postedByFaction : faction shown in intel panel as issuer of bounty. Also faction which rep reward applies to,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# creditReward : credits paid out for bounty,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# repReward : reputation points with issuing faction paid out for bounty on a 100 point scale,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# intelText : text what goes in the intel panel,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# flagshipVariant : variant ID of bounty flagship. Will NOT use autofit,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# fleetVariants : comma-separated list of variant ids for rest of bounty fleet. Will NOT use autofit,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# minimumFleetFP : random faction ships will be added to fleet until its FP passes this number.,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# playerFPScalingFactor : random faction ships will be added to fleet until its FP passes the player fleet FP multiplied by this number.,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# chanceToAutoRecover : fractional chance to automatically recover with maximum D-mods. Does NOT affect standard recovery chance. Optional: default 1 aka 100%,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# specialItemsList : comma-separated list of special item ids dropped by fleet.,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# neverSpawnUnlessBountiesCompleted : comma-separated list of unique bounty IDs required to be in 'spent bounties' list before bounty will spawn. Will account for bounties which have been manually deactivated via script as well as those are 'spent' to remove them.,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# neverSpawnWhenFactionHostile : if TRUE never spawn when player is hostile to issuing faction,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# neverSpawnWhenFactionNonHostile: if TRUE never spawn when player is friendly or neutral to target faction,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# neverSpawnBeforeCycle : if over 206 never spawn before said cycle,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# neverSpawnBeforeLevel : if over 1 never spawn when player is below said character level,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# neverSpawnBeforeFleetPoints : if over 1 never spawn when player fleet is less than said fleet points,,,,,,,,,,,,,,,,,,,,,,,,,,,,

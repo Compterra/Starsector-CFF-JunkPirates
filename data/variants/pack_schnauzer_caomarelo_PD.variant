@@ -1,0 +1,40 @@
+{
+  "quality":0.6,
+  "displayName": "Point Defense",
+  "fluxCapacitors": 10,
+  "fluxVents": 8,
+        "goalVariant": true,
+  "hullId": "pack_schnauzer_caomarelo",
+  "hullMods": ["targetingunit", "missleracks", "extendedshieldemitter"],
+  "variantId": "pack_schnauzer_caomarelo_PD",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0001": "swarmer",
+        "WS0002": "swarmer",
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "pdburst",
+        "WS0004": "pdburst",
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0005": "vulcan"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {}
+    }
+  ]
+}

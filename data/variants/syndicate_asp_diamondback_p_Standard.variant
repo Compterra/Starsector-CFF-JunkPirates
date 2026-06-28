@@ -1,0 +1,40 @@
+{
+  "displayName": "Standard",
+  "fluxCapacitors": 1,
+  "fluxVents": 4,
+  "goalVariant": true,
+  "hullId": "syndicate_asp_diamondback_p",
+  "hullMods": [
+    "turretgyros",
+    "magazines"
+  ],
+  "permaMods": [],
+  "quality": 0,
+  "variantId": "syndicate_asp_diamondback_p_Standard",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS 1": "swarmer",
+        "WS0001": "swarmer",
+        "WS0002": "swarmer"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 2": "pdburst"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 3": "ioncannon"
+      }
+    }
+  ],
+  "wings": []
+}

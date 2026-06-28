@@ -1,0 +1,42 @@
+{
+  "quality":0.6,
+  "displayName": "Standard",
+  "fluxCapacitors": 6,
+  "fluxVents": 8,
+        "goalVariant": true,
+  "hullId": "pack_schnauzer_rothund",
+  "hullMods": [
+    "augmentedengines"
+  ],
+  "variantId": "pack_schnauzer_rothund_Standard",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0001": "irpulse",
+        "WS0002": "irpulse",
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "pdburst",
+        "WS0004": "pdburst",
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0005": "amblaster"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {}
+    }
+  ]
+}

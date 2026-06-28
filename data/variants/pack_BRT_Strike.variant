@@ -1,0 +1,50 @@
+{
+  "displayName": "Strike",
+  "fluxCapacitors": 12,
+  "fluxVents": 12,
+  "goalVariant": true,
+  "hullId": "pack_BRT",
+  "hullMods": [
+    "unstable_injector"
+  ],
+  "permaMods": [],
+  "quality": 0.5,
+  "variantId": "pack_BRT_Strike",
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0005": "ioncannon",
+        "WS0006": "ioncannon",
+        "WS0007": "ionpulser",
+        "WS0008": "ionpulser"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "lightmg",
+        "WS0002": "lightmg",
+        "WS0010": "pack_affenpinscher"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "railgun",
+        "WS0004": "railgun"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0009": "reaper"
+      }
+    }
+  ],
+  "wings": []
+}

@@ -1,0 +1,48 @@
+{
+  "displayName": "Standard",
+  "fluxCapacitors": 4,
+  "fluxVents": 16,
+  "goalVariant": true,
+  "hullId": "pack_sharpei",
+  "hullMods": [],
+  "permaMods": [],
+  "quality": 0,
+  "variantId": "pack_sharpei_Standard",
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0001": "annihilatorpod",
+        "WS0002": "annihilatorpod"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "arbalest",
+        "WS0004": "arbalest"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0005": "pdlaser",
+        "WS0006": "pdlaser",
+        "WS0007": "pdlaser",
+        "WS0008": "pdlaser"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0009": "amblaster",
+        "WS0010": "amblaster"
+      }
+    }
+  ],
+  "wings": []
+}

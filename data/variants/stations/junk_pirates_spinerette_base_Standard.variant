@@ -1,0 +1,36 @@
+{
+  "displayName": "Arachnoid",
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "goalVariant": true,
+  "hullId": "junk_pirates_spinerette_base",
+  "hullMods": [],
+  "permaMods": [],
+  "quality": 0,
+  "variantId": "junk_pirates_spinerette_base_Standard",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0015": "junk_pirates_mlrs",
+        "WS0016": "junk_pirates_mlrs",
+      }
+    },
+  ],
+  "modules": [
+        {"WS0001": "junk_pirates_spinerette_arm_r_Energy"},
+        {"WS0002": "junk_pirates_spinerette_arm_l_Energy"},
+        {"WS0003": "junk_pirates_mandible_shield_r_Standard"},
+        {"WS0004": "junk_pirates_mandible_shield_l_Standard"},
+        {"WS0005": "junk_pirates_flank_l_Standard"},
+        {"WS0006": "junk_pirates_flank_r_Standard"},
+	{"WS0007": "junk_pirates_spinerette_arm_l_Ballistic"},
+	{"WS0008": "junk_pirates_spinerette_arm_r_Ballistic"},
+	{"WS0009": "junk_pirates_cheek_r_Standard"},
+	{"WS0010": "junk_pirates_cheek_l_Standard"},
+	{"WS0011": "junk_pirates_spinerette_hat_Standard"},
+	{"WS0012": "junk_pirates_spinerette_bottom_bit_Standard"},
+  ],
+  "wings": []
+}

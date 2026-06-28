@@ -1,0 +1,35 @@
+{
+    "displayName": "Standoff",
+    "fluxCapacitors": 5,
+    "fluxVents": 5,
+    "hullId": "junk_pirates_clementine",
+        "goalVariant": true,
+    "hullMods": [
+        "targetingunit",
+        "hardened_subsystems"
+    ],
+    "quality": 0.6,
+  "variantId": "junk_pirates_clementine_Standoff",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {"WS0006": "heatseeker"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "taclaser",
+                "WS0002": "taclaser",
+                "WS0004": "lightmg",
+                "WS0005": "lightmg"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0003": "gravitonbeam"}
+        }
+    ]
+}

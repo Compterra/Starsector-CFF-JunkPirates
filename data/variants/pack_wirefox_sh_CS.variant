@@ -1,0 +1,33 @@
+{
+  "displayName": "CS",
+  "fluxCapacitors": 9,
+  "fluxVents": 10,
+  "goalVariant": true,
+  "hullId": "pack_wirefox_sh",
+  "hullMods": [
+    "extendedshieldemitter",
+    "advancedshieldemitter"
+  ],
+  "permaMods": [],
+  "quality": 0.5,
+  "variantId": "pack_wirefox_sh_CS",
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "lightmg",
+        "WS0004": "lightmg"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "taclaser",
+        "WS0002": "taclaser"
+      }
+    }
+  ],
+  "wings": []
+}

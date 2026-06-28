@@ -1,0 +1,33 @@
+{
+    "displayName": "Bullseye",
+    "fluxCapacitors": 10,
+    "fluxVents": 9,
+        "goalVariant": true,
+    "hullId": "pack_schnauzer_bullseye",
+    "hullMods": ["missleracks"],
+    "quality": 0.5,
+    "variantId": "pack_schnauzer_bullseye_Bullseye",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "irpulse",
+                "WS0002": "irpulse"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {"WS0005": "harpoon"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "pdburst",
+                "WS0004": "pdburst"
+            }
+        }
+    ]
+}
