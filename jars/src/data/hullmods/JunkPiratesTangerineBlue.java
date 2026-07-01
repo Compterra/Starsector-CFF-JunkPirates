@@ -26,7 +26,7 @@ public class JunkPiratesTangerineBlue extends BaseHullMod {
 
         public static final float ZAP_FREQUENCY = 0.9f; // in seconds - controls lag and ultimately power of hullmod
 	
-        private float timestamp = 0f;
+        private static final String TIMESTAMP_KEY_PREFIX = "JunkPiratesTangerineBlue_timestamp_";
         
         private static final Color FRINGE_COLOR = new Color(190, 135, 150, 225);
         private static final Color CORE_COLOR = new Color(190, 135, 150, 225);
@@ -38,10 +38,13 @@ public class JunkPiratesTangerineBlue extends BaseHullMod {
         if (ship == null || Global.getCombatEngine() == null || Global.getCombatEngine().isPaused() || ship.isHulk()) {
             return;
         }
-        if (timestamp == 0f)
-            {
-                timestamp = Global.getCombatEngine().getTotalElapsedTime(false);
-            }
+        String timestampKey = TIMESTAMP_KEY_PREFIX + ship.getId();
+        Object timestampObj = Global.getCombatEngine().getCustomData().get(timestampKey);
+        float timestamp = timestampObj instanceof Float ? (Float) timestampObj : 0f;
+        if (timestamp == 0f) {
+            timestamp = Global.getCombatEngine().getTotalElapsedTime(false);
+            Global.getCombatEngine().getCustomData().put(timestampKey, timestamp);
+        }
         float time = Global.getCombatEngine().getTotalElapsedTime(false) - timestamp;
         
         if (time >= ZAP_FREQUENCY) {
@@ -115,7 +118,7 @@ public class JunkPiratesTangerineBlue extends BaseHullMod {
             }
             int targetMaxCount = mcount + scount;
             if (targetMaxCount <= 0) {
-                timestamp = 0f;
+                Global.getCombatEngine().getCustomData().put(timestampKey, 0f);
                 return;
             }
 
@@ -180,7 +183,7 @@ public class JunkPiratesTangerineBlue extends BaseHullMod {
                 }   
 
             }
-        timestamp = 0f;
+        Global.getCombatEngine().getCustomData().put(timestampKey, 0f);
         }
     }
     

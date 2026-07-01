@@ -161,12 +161,15 @@ public class JunkPiratesTangerine extends BaseHullMod {
                 }
             }
             int targetMaxCount = mcount + scount;
+            if (targetMaxCount <= 0) {
+                return;
+            }
 
             float chaffdam = 450;
             float chaffemp = 250;
             
             for (CombatEntityAPI x : chaffed) {
-                if (MathUtils.getRandomNumberInRange(0, targetMaxCount) <= scount) {
+                if (scount > 0 && MathUtils.getRandomNumberInRange(0, targetMaxCount) <= scount) {
                     target = stargets.pick();
                 } else {
                     target = mtargets.pick();
@@ -206,7 +209,7 @@ public class JunkPiratesTangerine extends BaseHullMod {
                 while (count < charges) {
 
                     count++;
-                    if (MathUtils.getRandomNumberInRange(0, targetMaxCount) <= scount) {
+                    if (scount > 0 && MathUtils.getRandomNumberInRange(0, targetMaxCount) <= scount) {
                         target = stargets.pick();
                     } else {
                         target = mtargets.pick();
