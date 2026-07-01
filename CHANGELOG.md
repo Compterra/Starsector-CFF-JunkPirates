@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0
+
+- Modernized combat-script state handling for Burst Jets, Cruiser Burst Jets, Kraken Retreat, Shocking Behaviour, electrostatic beam effects, and station-module animation hullmods.
+- Hardened electrochaff/Junkjet spawning against impossible collision-placement loops.
+- Rebuilt `JunkPirates.jar` with Java 17-compatible classfiles after the combat-script cleanup.
+
 ## 1.0.3
 
 - Hardened ASP courier, ASP hit squad, and Junk explorer campaign scripts against stale fleets and null campaign state.

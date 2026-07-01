@@ -2,8 +2,8 @@
 	"id":"junk_pirates_release", # internal id
 	"name":"Junk pirates / ASP / PACK (Release)", # displayed to the player
 	"author":"mendonca",
-	"version":"1.0.3",
-	"description":"Junk Pirates, PACK and ASP Syndicate come together, at long last. 0.98a-RC8 compatibility pass with Nexerelin faction setup, save-load recovery, relation cleanup, LunaLib settings, Starship Legends support, first-pass ship balance, and updated dependency metadata. Requires LazyLib and GraphicsLib.",
+	"version":"1.1.0",
+	"description":"Junk Pirates, PACK and ASP Syndicate come together, at long last. 0.98a-RC8 compatibility pass with Nexerelin faction setup, save-load recovery, relation cleanup, LunaLib settings, Starship Legends support, first-pass ship balance, combat-script hardening, and updated dependency metadata. Requires LazyLib and GraphicsLib.",
 	"gameVersion":"0.98a-RC8",
 	"modPlugin":"data.scripts.JunkPiratesModPlugin", # mod plug in ...
 	"jars":["jars/JunkPirates.jar"],
