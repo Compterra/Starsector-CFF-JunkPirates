@@ -19,14 +19,14 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 
 		// Set a small blurb for each fleet that shows up on the mission detail and
 		// mission results screens to identify each side.
-		api.setFleetTagline(FleetSide.PLAYER, "Royal Junk Collection Fleet");
-		api.setFleetTagline(FleetSide.ENEMY, "Weird Creepy Thing");
+		api.setFleetTagline(FleetSide.PLAYER, "Royal Junk Recovery Squadron");
+		api.setFleetTagline(FleetSide.ENEMY, "Unidentified Salvage Target");
 		
 		// These show up as items in the bulleted list under 
 		// "Tactical Objectives" on the mission detail screen
-		api.addBriefingItem("Disable the Weird Creepy Thing");
-		api.addBriefingItem("Don't let it escape!");
-		api.addBriefingItem("RNS Dreamboat must survive");
+		api.addBriefingItem("Disable the unidentified target before it escapes.");
+		api.addBriefingItem("Keep the recovery squadron together.");
+		api.addBriefingItem("RNS Dreamboat must survive.");
 		
 		// api.addToFleet(FleetSide.PLAYER, "onslaught_Reconditioned", FleetMemberType.SHIP, false);
 		api.addToFleet(FleetSide.PLAYER, "junk_pirates_magpie_Standard", FleetMemberType.SHIP, "RNS Fizzler", false);

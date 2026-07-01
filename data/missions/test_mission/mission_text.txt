@@ -1,4 +1,8 @@
 Location: Breh'inni 6
 Date: 207.10.15
 
-Test your new things out here
+An RNS collection squadron has tracked a strange salvage target into the outer debris fields of Breh'inni 6.
+
+The object is moving under its own power, broadcasting no registration, and ignoring every warning burst sent across the local channels. It might be a derelict. It might be bait. Either way, command wants it disabled before it slips back into the junk belts.
+
+Bring it down intact if you can. Keep RNS Dreamboat alive if you cannot.
