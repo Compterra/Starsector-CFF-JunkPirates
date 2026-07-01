@@ -6,9 +6,9 @@
 package data.shipsystems.scripts;
 
 import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.combat.CombatEngineAPI;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
-import com.fs.starfarer.api.combat.ShipEngineControllerAPI.ShipEngineAPI;
 import com.fs.starfarer.api.combat.WeaponAPI;
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript;
 import com.fs.starfarer.api.loading.WeaponSlotAPI;
@@ -23,9 +23,7 @@ import org.lazywizard.lazylib.MathUtils;
  */
 public class JunkPiratesCruiserBurstJets extends BaseShipSystemScript {
 
-    private int flaresLaunched = 0;
-    //private float timestamp = 0f;
-    public static final float TIME_BETWEEN_FLARES = 0.45f;
+    private static final String FLARE_COUNT_KEY_PREFIX = "JunkPiratesCruiserBurstJets_flares_";
     public static final int MAX_FLARES = 3;
     public static final String ELECTRO_FLARE_WEAPON_ID = "vayra_electrochafflauncher";
     public static final Set<String> FLARE_SLOT_IDS = new HashSet<>(8);
@@ -56,50 +54,29 @@ public class JunkPiratesCruiserBurstJets extends BaseShipSystemScript {
 			stats.getMaxTurnRate().modifyPercent(id, 250f);
 		}
 		
-                
-                
-		if (stats.getEntity() instanceof ShipAPI && false) {
-			ShipAPI ship = (ShipAPI) stats.getEntity();
-			String key = ship.getId() + "_" + id;
-			Object test = Global.getCombatEngine().getCustomData().get(key);
-			if (state == State.IN) {
-				if (test == null && effectLevel > 0.2f) {
-					Global.getCombatEngine().getCustomData().put(key, new Object());
-					ship.getEngineController().getExtendLengthFraction().advance(1f);
-					for (ShipEngineAPI engine : ship.getEngineController().getShipEngines()) {
-						if (engine.isSystemActivated()) {
-							ship.getEngineController().setFlameLevel(engine.getEngineSlot(), 1f);
-						}
-					}
-				}
-			} else {
-				Global.getCombatEngine().getCustomData().remove(key);
-			}
-		}
-                
-//            if (timestamp == 0f)
-//            {
-//                timestamp = Global.getCombatEngine().getTotalElapsedTime(false);
-//            }
-//            float time = Global.getCombatEngine().getTotalElapsedTime(false) - timestamp;
+            CombatEngineAPI engine = Global.getCombatEngine();
+            if (engine == null || engine.isPaused() || !(stats.getEntity() instanceof ShipAPI)) {
+                return;
+            }
 
-//            if ((time >= flaresLaunched * TIME_BETWEEN_FLARES) && (flaresLaunched < MAX_FLARES))
+            ShipAPI ship = (ShipAPI) stats.getEntity();
+            String key = FLARE_COUNT_KEY_PREFIX + ship.getId() + "_" + id;
+            Integer flaresLaunched = (Integer) engine.getCustomData().get(key);
+            if (flaresLaunched == null) {
+                flaresLaunched = 0;
+            }
+
             if (flaresLaunched < MAX_FLARES)
             {
-                flaresLaunched++;
-                ShipAPI ship = (ShipAPI) stats.getEntity();
-                if (ship == null)
-                {
-                    return;
-                }
+                engine.getCustomData().put(key, flaresLaunched + 1);
 
                 Global.getSoundPlayer().playSound("system_flare_launcher_active", 1f, 1f, ship.getLocation(), ship.getVelocity());
                 for (WeaponAPI weapon : ship.getAllWeapons())
                 {
                     WeaponSlotAPI slot = weapon.getSlot();
-                    if (FLARE_SLOT_IDS.contains(slot.getId()))
+                    if (slot != null && FLARE_SLOT_IDS.contains(slot.getId()))
                     {
-                        Global.getCombatEngine().spawnProjectile(ship, weapon, ELECTRO_FLARE_WEAPON_ID, weapon.getLocation(),
+                        engine.spawnProjectile(ship, weapon, ELECTRO_FLARE_WEAPON_ID, weapon.getLocation(),
                         weapon.getCurrAngle() + MathUtils.getRandomNumberInRange(-15f, 15f), ship.getVelocity());
                     }
                 }
@@ -112,9 +89,12 @@ public class JunkPiratesCruiserBurstJets extends BaseShipSystemScript {
 		stats.getTurnAcceleration().unmodify(id);
 		stats.getAcceleration().unmodify(id);
 		stats.getDeceleration().unmodify(id);
-                
-                flaresLaunched = 0;
-                //timestamp = 0f;
+
+            CombatEngineAPI engine = Global.getCombatEngine();
+            if (engine != null && stats.getEntity() instanceof ShipAPI) {
+                ShipAPI ship = (ShipAPI) stats.getEntity();
+                engine.getCustomData().remove(FLARE_COUNT_KEY_PREFIX + ship.getId() + "_" + id);
+            }
 	}
 	
 	public StatusData getStatusData(int index, State state, float effectLevel) {

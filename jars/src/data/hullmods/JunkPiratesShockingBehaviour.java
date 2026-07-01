@@ -22,6 +22,7 @@ public class JunkPiratesShockingBehaviour extends BaseHullMod {
         
         public static final Set<String> ZAP_SLOT_IDS = new HashSet<>(8);
         public static final float ZAP_FREQUENCY = 0.5f;
+        private static final String ZAP_TIMESTAMP_KEY_PREFIX = "JunkPiratesShockingBehaviour_timestamp_";
     
         private static final Set<String> BLOCKED_HULLMODS = new HashSet<>(1);
         
@@ -41,8 +42,6 @@ public class JunkPiratesShockingBehaviour extends BaseHullMod {
             ZAP_SLOT_IDS.add("ZAP8");
         }
 	
-        private float timestamp = 0f;
-        
         private static final Color FRINGE_COLOR = new Color(190, 135, 150, 225);
         private static final Color CORE_COLOR = new Color(190, 135, 150, 225);
              
@@ -61,9 +60,12 @@ public class JunkPiratesShockingBehaviour extends BaseHullMod {
         if (!ship.isStationModule() || ship.getParentStation() == null) {
             return;
         }
-        if (timestamp == 0f)
+        String key = ZAP_TIMESTAMP_KEY_PREFIX + ship.getId();
+        Float timestamp = (Float) Global.getCombatEngine().getCustomData().get(key);
+        if (timestamp == null)
             {
                 timestamp = Global.getCombatEngine().getTotalElapsedTime(false);
+                Global.getCombatEngine().getCustomData().put(key, timestamp);
             }
         float time = Global.getCombatEngine().getTotalElapsedTime(false) - timestamp;
         
@@ -112,7 +114,7 @@ public class JunkPiratesShockingBehaviour extends BaseHullMod {
                         CORE_COLOR);
 
                         }
-                    timestamp = 0f;
+                    Global.getCombatEngine().getCustomData().put(key, Global.getCombatEngine().getTotalElapsedTime(false));
                     }
                 }
     

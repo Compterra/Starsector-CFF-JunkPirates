@@ -35,6 +35,7 @@ public class VayraElectroChaffAndJunkjetPlugin extends BaseEveryFrameCombatPlugi
 
     // spread arc in degrees (width, not radius) for spawned chaff
     public static final float CHAFF_SPAWN_ARC = 130f;
+    private static final int MAX_CHAFF_SPAWN_ADJUSTMENTS = 64;
 
     // colors for EMP arcs (should ideally match the shock beam and other weapon/proj stuff)
     private static final Color FRINGE_COLOR = new Color(135, 190, 150, 225);
@@ -54,7 +55,7 @@ public class VayraElectroChaffAndJunkjetPlugin extends BaseEveryFrameCombatPlugi
     public static final String KEY = "$vayra_electroChaffPlugin";
 
     private static final HashMap<String, Float> JUNKJET_SPECS = new HashMap<>();
-    private static HashMap<String, Integer> WEAPON_CHAFF_DATA = new HashMap<>();
+    private static final HashMap<String, Integer> WEAPON_CHAFF_DATA = new HashMap<>();
 
     static {
         JUNKJET_SPECS.put("frag", 0.6969f); // warhead type, spawn weight inside spawn cycle
@@ -69,9 +70,9 @@ public class VayraElectroChaffAndJunkjetPlugin extends BaseEveryFrameCombatPlugi
     public static Logger log = Global.getLogger(VayraElectroChaffAndJunkjetPlugin.class);
 
     // these three are used to store stuff dynamically and need to be cleared
-    private static HashMap<WeaponAPI, WeightedRandomPicker<Integer>> CHAFF_SPAWN_ROLLERS = new HashMap<>();
-    private static Set<MissileAPI> CHAFF = new HashSet<>();
-    private static Set<MissileAPI> CHAFF_SPENT = new HashSet<>();
+    private static final HashMap<WeaponAPI, WeightedRandomPicker<Integer>> CHAFF_SPAWN_ROLLERS = new HashMap<>();
+    private static final Set<MissileAPI> CHAFF = new HashSet<>();
+    private static final Set<MissileAPI> CHAFF_SPENT = new HashSet<>();
 
     @Override
     public void init(CombatEngineAPI engine) {
@@ -388,7 +389,8 @@ public class VayraElectroChaffAndJunkjetPlugin extends BaseEveryFrameCombatPlugi
                     collision = CollisionUtils.isPointWithinCollisionCircle(loc, target);
                 }
                 float moveDist = 10f;
-                while (collision) {
+                int attempts = 0;
+                while (collision && attempts < MAX_CHAFF_SPAWN_ADJUSTMENTS) {
                     if (VAYRA_DEBUG) {
                         log.info(String.format("loc [%s] is within [%s] bounds, moving [%s] su at [%s] degree angle", loc, target, moveDist, angle));
                     }
@@ -397,6 +399,13 @@ public class VayraElectroChaffAndJunkjetPlugin extends BaseEveryFrameCombatPlugi
                     if (shieldHit) {
                         collision = CollisionUtils.isPointWithinCollisionCircle(loc, target);
                     }
+                    attempts++;
+                }
+                if (collision) {
+                    if (VAYRA_DEBUG) {
+                        log.info(String.format("could not place chaff outside [%s] bounds after [%s] attempts; skipping spawn", target, attempts));
+                    }
+                    continue;
                 }
 
                 Object spawned = Global.getCombatEngine().spawnProjectile(actualWeapon.getShip(), null, ELECTROCHAFF_LAUNCHER_ID, loc, angle, target.getVelocity());

@@ -37,10 +37,6 @@ public class JunkPiratesTangerine extends BaseHullMod {
         public static final float MAX_DEC_BONUS_PC = 100f;
         public static final float MAX_ACC_BONUS_PC = 110f;
         public static final float MAX_TURN_BONUS_PC = 75f;
-        private float timestamp = 0f;
-        private int numberBursts = 0;
-        public static final float TIME_BETWEEN_BURST = 0.45f;
-        
         public static String JPT_ICON = "graphics/icons/tactical/metaStableDriveField.png";
         public static String JPT_ID = "JunkPiratesTangerine";
         public static String JPTCC_ID = "JunkPiratesChaffCatcher";

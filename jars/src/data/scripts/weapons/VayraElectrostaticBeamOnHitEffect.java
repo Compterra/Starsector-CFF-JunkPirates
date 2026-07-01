@@ -22,11 +22,10 @@ import org.lwjgl.util.vector.Vector2f;
 public class VayraElectrostaticBeamOnHitEffect implements BeamEffectPlugin {
 
     // amount to reduce burst length by for calculating crit interval, and increase it by for calculating crit chance
-    private static float TIME_MOD = 0.05f;
+    private static final float TIME_MOD = 0.05f;
 
-    private static Map<WeaponAPI, IntervalUtil> FIRE_INTERVALS = new WeakHashMap<>();
-
-    private boolean wasZero = true;
+    private static final Map<WeaponAPI, IntervalUtil> FIRE_INTERVALS = new WeakHashMap<>();
+    private static final Map<WeaponAPI, Boolean> WAS_ZERO = new WeakHashMap<>();
 
     public void advance(float amount, CombatEngineAPI engine, BeamAPI beam) {
         if (engine == null || beam == null || beam.getWeapon() == null || beam.getDamage() == null) {
@@ -60,10 +59,11 @@ public class VayraElectrostaticBeamOnHitEffect implements BeamEffectPlugin {
             if (!shieldHit) {
                 // needed because when the ship is in fast-time, dpsDuration will not be reset every frame as it should be
                 float dur = beam.getDamage().getDpsDuration();
+                boolean wasZero = WAS_ZERO.getOrDefault(beam.getWeapon(), Boolean.TRUE);
                 if (!wasZero) {
                     dur = 0;
                 }
-                wasZero = beam.getDamage().getDpsDuration() <= 0;
+                WAS_ZERO.put(beam.getWeapon(), beam.getDamage().getDpsDuration() <= 0);
                 fireInterval.advance(dur);
 
                 // trigger every <interval> seconds

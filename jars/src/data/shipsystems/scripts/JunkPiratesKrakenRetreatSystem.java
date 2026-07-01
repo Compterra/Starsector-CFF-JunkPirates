@@ -9,7 +9,6 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.CombatEngineAPI;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
-import com.fs.starfarer.api.combat.ShipEngineControllerAPI.ShipEngineAPI;
 import com.fs.starfarer.api.combat.WeaponAPI;
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript;
 import com.fs.starfarer.api.loading.WeaponSlotAPI;
@@ -28,8 +27,8 @@ import org.lwjgl.util.vector.Vector2f;
  */
 public class JunkPiratesKrakenRetreatSystem extends BaseShipSystemScript {
 
-    private int flaresLaunched = 0;
-    private float timestamp = 0f;
+    private static final String FLARE_COUNT_KEY_PREFIX = "JunkPiratesKrakenRetreatSystem_flares_";
+    private static final String TIMESTAMP_KEY_PREFIX = "JunkPiratesKrakenRetreatSystem_timestamp_";
     public static final float TIME_BETWEEN_FLARES = 0.1f;
     public static final int MAX_FLARES = 4;
     public static final String ELECTRO_FLARE_WEAPON_ID = "vayra_electrochafflauncher";
@@ -39,8 +38,6 @@ public class JunkPiratesKrakenRetreatSystem extends BaseShipSystemScript {
     public static final float EXPLOSION_DURATION = 1.2f;
     public static final float SMOKE_DURATION = 2.4f;
     public static final float SMOKE_EXTRA_VEL = 10f;
-    
-    //private static final String DATA_KEY = "junk_pirates_kraken_retreat";
     
     static
     {
@@ -57,7 +54,7 @@ public class JunkPiratesKrakenRetreatSystem extends BaseShipSystemScript {
 	public void apply(MutableShipStatsAPI stats, String id, State state, float effectLevel) {
             CombatEngineAPI combatEngine = Global.getCombatEngine();
 
-            if (combatEngine.isPaused()) {
+            if (combatEngine == null || combatEngine.isPaused() || !(stats.getEntity() instanceof ShipAPI)) {
                 return;
             }
 
@@ -102,61 +99,49 @@ public class JunkPiratesKrakenRetreatSystem extends BaseShipSystemScript {
                 }
             }
                 
-            if (stats.getEntity() instanceof ShipAPI && false) {
-                    String key = ship.getId() + "_" + id;
-                    Object test = Global.getCombatEngine().getCustomData().get(key);
-                    if (state == State.IN) {
-                            if (test == null && effectLevel > 0.2f) {
-                                    Global.getCombatEngine().getCustomData().put(key, new Object());
-                                    ship.getEngineController().getExtendLengthFraction().advance(1f);
-                                    for (ShipEngineAPI engine : ship.getEngineController().getShipEngines()) {
-                                            if (engine.isSystemActivated()) {
-                                                ship.getEngineController().setFlameLevel(engine.getEngineSlot(), 1f);
-                                            }
-                                    }
-                            }
-                    } else {
-                            Global.getCombatEngine().getCustomData().remove(key);
-                    }
-            }
-                
-            if (timestamp == 0f)
+            String keySuffix = ship.getId() + "_" + id;
+            String flareCountKey = FLARE_COUNT_KEY_PREFIX + keySuffix;
+            String timestampKey = TIMESTAMP_KEY_PREFIX + keySuffix;
+
+            Float timestamp = (Float) combatEngine.getCustomData().get(timestampKey);
+            if (timestamp == null)
             {
-                timestamp = Global.getCombatEngine().getTotalElapsedTime(false);
+                timestamp = combatEngine.getTotalElapsedTime(false);
+                combatEngine.getCustomData().put(timestampKey, timestamp);
             }
-            float time = Global.getCombatEngine().getTotalElapsedTime(false) - timestamp;
+            float time = combatEngine.getTotalElapsedTime(false) - timestamp;
+
+            Integer flaresLaunched = (Integer) combatEngine.getCustomData().get(flareCountKey);
+            if (flaresLaunched == null)
+            {
+                flaresLaunched = 0;
+            }
 
             if ((time >= flaresLaunched * TIME_BETWEEN_FLARES) && (flaresLaunched < MAX_FLARES))
-//            if (flaresLaunched < MAX_FLARES)
             {
                 flaresLaunched++;
-                if (ship == null)
-                {
-                    return;
-                }
+                combatEngine.getCustomData().put(flareCountKey, flaresLaunched);
 
                 Global.getSoundPlayer().playSound("hit_heavy", 1f, 1f, ship.getLocation(), ship.getVelocity());
                 for (WeaponAPI weapon : ship.getAllWeapons())
                 {
-                    Vector2f shipVel = new Vector2f();
-                    Vector2f smokeVel = new Vector2f();
-                    shipVel = ship.getVelocity();
-                    smokeVel = ship.getVelocity();
+                    Vector2f shipVel = new Vector2f(ship.getVelocity());
+                    Vector2f smokeVel = new Vector2f(ship.getVelocity());
                     VectorUtils.resize(smokeVel, SMOKE_EXTRA_VEL, smokeVel);
                     //VectorUtils.rotate(exploVel, ship.getFacing(), exploVel);
                     WeaponSlotAPI slot = weapon.getSlot();
-                    if (FLARE_SLOT_IDS.contains(slot.getId()))
+                    if (slot != null && FLARE_SLOT_IDS.contains(slot.getId()))
                     {
-                        Global.getCombatEngine().spawnProjectile(ship, weapon, ELECTRO_FLARE_WEAPON_ID, weapon.getLocation(),
+                        combatEngine.spawnProjectile(ship, weapon, ELECTRO_FLARE_WEAPON_ID, weapon.getLocation(),
                         weapon.getCurrAngle() + MathUtils.getRandomNumberInRange(-15f, 15f), shipVel);
                         float redExplosionSize = MathUtils.getRandomNumberInRange(10, 10 * flaresLaunched);
                         float yellowExplosionSize = MathUtils.getRandomNumberInRange(10, 5 * flaresLaunched);
                         if (flaresLaunched == 1) {
-                            Global.getCombatEngine().spawnExplosion(weapon.getLocation(), shipVel, EXPLOSION_COLOR_RED, redExplosionSize, EXPLOSION_DURATION);
-                            Global.getCombatEngine().spawnExplosion(weapon.getLocation(), shipVel, EXPLOSION_COLOR_YELLOW, yellowExplosionSize, EXPLOSION_DURATION);
-                            Global.getCombatEngine().addSmokeParticle(weapon.getLocation(), smokeVel, redExplosionSize * 1.5f, 0.4f, SMOKE_DURATION, Color.gray);
+                            combatEngine.spawnExplosion(weapon.getLocation(), shipVel, EXPLOSION_COLOR_RED, redExplosionSize, EXPLOSION_DURATION);
+                            combatEngine.spawnExplosion(weapon.getLocation(), shipVel, EXPLOSION_COLOR_YELLOW, yellowExplosionSize, EXPLOSION_DURATION);
+                            combatEngine.addSmokeParticle(weapon.getLocation(), smokeVel, redExplosionSize * 1.5f, 0.4f, SMOKE_DURATION, Color.gray);
                         } else {
-                            Global.getCombatEngine().addSmokeParticle(weapon.getLocation(), shipVel, redExplosionSize * 0.6f * flaresLaunched, 0.3f, SMOKE_DURATION, Color.gray);
+                            combatEngine.addSmokeParticle(weapon.getLocation(), shipVel, redExplosionSize * 0.6f * flaresLaunched, 0.3f, SMOKE_DURATION, Color.gray);
                         }
                     } //ship.getVelocity()
                 }
@@ -170,8 +155,13 @@ public class JunkPiratesKrakenRetreatSystem extends BaseShipSystemScript {
 		stats.getAcceleration().unmodify(id);
 		stats.getDeceleration().unmodify(id);
                 
-                flaresLaunched = 0;
-                timestamp = 0f;
+            CombatEngineAPI combatEngine = Global.getCombatEngine();
+            if (combatEngine != null && stats.getEntity() instanceof ShipAPI) {
+                ShipAPI ship = (ShipAPI) stats.getEntity();
+                String keySuffix = ship.getId() + "_" + id;
+                combatEngine.getCustomData().remove(FLARE_COUNT_KEY_PREFIX + keySuffix);
+                combatEngine.getCustomData().remove(TIMESTAMP_KEY_PREFIX + keySuffix);
+            }
 	}
 	
 	public StatusData getStatusData(int index, State state, float effectLevel) {

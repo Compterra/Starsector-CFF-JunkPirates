@@ -22,8 +22,6 @@ public class JunkPiratesWibbleWobble extends BaseHullMod {
         public static final float ANGLE_MOD = 3f;
         public static final float TOP_SPEED_BASIS = 60f;
         public static final Vector2f BASE_HEADING = new Vector2f(0f ,1f);
-        private float initialModuleFacing = 0f;
-        private float forwardOrBackward = 0f;
         
 //        public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
 //		stats.getDynamic().getMod(Stats.INDIVIDUAL_SHIP_RECOVERY_MOD).modifyFlat(id, 1000f);
@@ -48,7 +46,7 @@ public class JunkPiratesWibbleWobble extends BaseHullMod {
             WeaponSlotAPI slot = ship.getStationSlot();
             //for (ShipAPI slot : face) {
             //    if (slot.equals(ship)) {
-                    initialModuleFacing = slot.getAngle() + ship.getParentStation().getFacing();
+                    float initialModuleFacing = slot.getAngle() + ship.getParentStation().getFacing();
                     
                     Vector2f speeed = ship.getParentStation().getVelocity();
                     
@@ -57,6 +55,7 @@ public class JunkPiratesWibbleWobble extends BaseHullMod {
                     float directionTravel = VectorUtils.getFacing(speeed);
                     float directionPointing = ship.getParentStation().getFacing();
                     
+                    float forwardOrBackward;
                     if (directionTravel > directionPointing) {
                         forwardOrBackward = 360 - directionTravel + directionPointing;
                     } else {
