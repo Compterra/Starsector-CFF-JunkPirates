@@ -14,13 +14,13 @@ $faction.id == junk_pirates
 $market.id == glory score:2","AddText ""The hab-tubes of Glory are never truly quiet. Laughter, argument, machine-song, and distant pressure groans move through bronze-tinged ceramic corridors. Public thoroughfares are crowded and loud; workshops and family spaces behind heavy doors fall silent as strangers pass. Everywhere, the red shadow of Breh'Inni is worked into paint, cloth, and metal."" marketFlavorTextColor",,,
 flavorTextMarketEarBurns,TradePanelFlavorText,"$global.tradePanelMode == MARKET
 $faction.id == independent
-$market.id == ear_burns score:2","AddText ""The artificial, dendritically branching network of high-pressure, radiation-proof habitations on this near-star world are oppressive and the atmosphere is thick. Nevertheless the pirates, brigands and artists that call this place home are unusually warm to visitors. Any visitor to this frontier world is given a free reign, and treated with great respect as a matter of course - those that live here are safe in the knowledge that any misstep will quickly see them ejected on to the exceptionally hot surface of the planet that is only ever a few tens of metres away from anywhere you could ever be."" marketFlavorTextColor",,,
+$market.id == ear_burns score:2","AddText ""Ear Burns is a branching maze of high-pressure, radiation-proof habs sunk into a near-star world. The air is thick, the walls sweat heat, and the pirates, brigands, and artists who live here are warmer to visitors than sense would suggest. Guests are given surprising freedom and treated with ritual respect, mostly because everyone knows a serious mistake can end with an airlock and the incandescent surface waiting a few dozen meters below."" marketFlavorTextColor",,,
 flavorTextMarketPaddington,TradePanelFlavorText,"$global.tradePanelMode == MARKET
 $faction.id == syndicate_asp
 $market.id == paddington score:2","AddText ""Paddington sells itself constantly: courier reliability, clean berths, low fees, fast contracts, smiling agents. The adverts are bright enough to feel medicinal. The locals look healthy, busy, and careful with their words, especially near the corridors where ASP security stops wearing customer-service colors."" marketFlavorTextColor",,,
 flavorTextMarketYogi,TradePanelFlavorText,"$global.tradePanelMode == MARKET
 $faction.id == independent
-$market.id == yogi score:2","AddText ""The smell of soap is all-encompassing, a (fortunate) by-product of whatever is going on in the ubiquitous chemical processing filtration plants throughout Yogi."" marketFlavorTextColor",,,
+$market.id == yogi score:2","AddText ""Yogi smells overwhelmingly of soap, a fortunate by-product of the chemical filtration plants hidden beneath its parks, roof-gardens, and managed wilderness."" marketFlavorTextColor",,,
 flavorTextMarketDartmouth,TradePanelFlavorText,"$global.tradePanelMode == MARKET
 $faction.id == junk_pirates
 $market.id == dartmouth score:2","AddText ""Dartmouth's dormant hab-tubes feel like a held breath. The corridors are colder, quieter, and less certain than those of Glory, with old Domain ceramics exposed beneath newer Junk repairs. Locals speak softly here, as if the station is sleeping rather than dead."" marketFlavorTextColor",,,
@@ -32,10 +32,10 @@ $faction.id == pack
 $market.id == petra score:2","AddText ""A woven Three-Toed Paw hangs at the dock gate, old enough to be tradition and new enough to smell of fresh dye. The locals welcome visitors with careful warmth, then point out the forbidden areas with absolute seriousness. A public holo-loop advertises opportunities on Christchurch while the poisoned sky of Petra presses against every external camera feed."" marketFlavorTextColor",,,
 flavorTextMarketFinnigans,TradePanelFlavorText,"$global.tradePanelMode == MARKET
 $faction.id == pirates
-$market.id == finnigans score:2","AddText ""Ship traffic is busy with the movement of freighters and light escorts - there are those bringing minerals on-board the station and those taking them further afield. Inventory system holo-projections blink in and out of existence as dockers process loads, with automated cranes and drone-shuttles sliding along rails and through the volume of the bay organising kiloton upon kiloton of the asteroidal hoard."" marketFlavorTextColor",,,
+$market.id == finnigans score:2","AddText ""Finnigans is busy with freighters, light escorts, and ore-haulers working the belt. Inventory holos blink above the docks while automated cranes and drone-shuttles slide along rails, sorting kilotons of asteroidal wealth into piles that are almost certainly already owed to someone else."" marketFlavorTextColor",,,
 flavorTextMarketBearspit,TradePanelFlavorText,"$global.tradePanelMode == MARKET
 $faction.id == pirates
-$market.id == bear_pit score:2","AddText ""Visitors are less common at this sparsely populated station, and the folk around the place tend to smile in a sinister way. Hawkers hand out invites to phenomemonally expensive-to-view no-rules fight events, giving away luridly coloured drinks in bulbous smoking vials to sweeten the invite. Unexplained dark stains streak against most walls."" marketFlavorTextColor",,,
+$market.id == bear_pit score:2","AddText ""Visitors are less common at this sparsely populated station, and the folk around the place tend to smile in a sinister way. Hawkers hand out invites to phenomenally expensive no-rules fight events, giving away luridly coloured drinks in bulbous smoking vials to sweeten the invite. Unexplained dark stains streak against most walls."" marketFlavorTextColor",,,
 ,,,,,,
 anarchistStationFleetOpenDefault,BeginFleetEncounter,"$isStation
 $faction.id == junk_pirates_technicians

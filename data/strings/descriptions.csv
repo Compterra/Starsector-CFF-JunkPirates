@@ -200,36 +200,36 @@ This prototypical system is large, cumbersome, flux-hungry but generally very st
 pack_drone_ion,SHIP,The Ion Drone of the Bedlington allows the ship to act as a very effective harasser,Drone (support),,,,
 pack_gunship,SHIP,"Vulcans and Swarmers make the Ivan-class great for screening against opposition fighter wings.
 
-The LPC has proc-gen code built in which provides a martially-useless but unique external decal-covering and finishing package to each unit - with common themes including neon under-carriage lighting; chromed front grilles and flame-effect fractal decals. These will often be supplemented by the Pilots own handiwork - although the mission-count of any individual unit will rarely hit double figures.",,,,,
-pack_pressure_gunship,SHIP,"With a miniaturised Ripsaw mounted on each wing; The Alyosha-class is capable of punching above its weight and putting pressure on shielded vessels. Flares allow the gunships to provide additional interference.
+Each LPC carries a small procedural finishing package that gives every unit a useless but unmistakable exterior: neon undercarriage lighting, chromed grilles, flame-fractal decals, and whatever the pilot could add before launch. Individual craft rarely survive long enough for a mission tally to reach double digits.",,,,,
+pack_pressure_gunship,SHIP,"With a miniaturized Ripsaw mounted on each wing, the Alyosha-class can punch above its weight and keep pressure on shielded vessels. Flares give the gunships a useful layer of battlefield interference.
 
-The reliance on kinetic weaponry make the unit a specialised one; but when deployed correctly it can shift the tides of a close battle.",,,,,
-pack_bomber,SHIP,"The Mitya-class has a couple of turret-mounted mag-rail delivered HE torpedoes; plus a shield and a PD laser to make sure it has a good chance of getting close enough to deliver.
+Its reliance on kinetic weaponry makes it specialized, but a well-timed deployment can shift the course of a close battle.",,,,,
+pack_bomber,SHIP,"The Mitya-class carries a pair of turret-mounted, mag-rail-delivered HE torpedoes, plus a shield and PD laser to improve its odds of reaching release range.
 
-The central command globe of this powerful bomber is particularly arcane in its construction and this unit is difficult for an autofac to efficiently field.",,,,,
+The bomber's central command globe is arcane even by P.A.C.K. standards, making the craft difficult for an autofac to field efficiently.",,,,,
 pack_levin,SHIP,"The Levin-class gunship is characterised by a huge frame for an LPC deliverable battle-platform - with a corresponding level of resilience under fire and lack of mobility.
 
-Designed to deliver a heavy burst of fire from range with her onboard Thumper and LAG turrets; it suffers under prolonged individual engagements due to the heavy flux load of the very large ordnance it carries.
+Designed to deliver a heavy burst of fire from range with its onboard Thumper and LAG turrets, it suffers in prolonged individual engagements due to the flux load imposed by its oversized ordnance.
 
 Onboard IPDAI assists in clearing away incoming missile threats but can distract from the primary role of the unit.",,,,,
-pack_oblonsky,SHIP,"The Oblonsky-class is an entirely self-sufficient Carrier-driven, CPU-operated, vulcan-armed drone with one drawback - the units are pre-programmed to require pilots to even clear the deck-mounted autofac.
+pack_oblonsky,SHIP,"The Oblonsky-class is a carrier-driven, CPU-operated, vulcan-armed drone with one stubborn drawback: its launch routines still require a pilot aboard before the deck autofac will clear it for combat.
 
-Once manned, the Oblonsky-class is capable of very-high mobility. A foam-metal-matrix filler subsumes the space between the pilot and the cockpit shell to protect from excessive forces at high speed; and a neural-spike allows the pilot to interface with the navigational and targeting computer - but the extremely high speeds of a typical space battle means the pilot rarely provides much in the way of meaningful input - the benefit being mostly to the pilot - with a brain quickly flooded with adrenaline, dopamine and any-other-mine the pituitary can squeeze out whilst the tiny craft corkscrews through open space.
+Once manned, the craft becomes violently mobile. A foam-metal matrix fills the cockpit around the pilot, while a neural spike links them to navigation and targeting. At the speeds involved, the pilot rarely contributes much beyond consent and panic; the computer does the flying while the occupant's brain floods itself with every useful chemical it can find.
 
-Oblonsky pilots are variously revered and ridiculed as the age-old and culturally-independent debate on the issue of 'Bravery vs. Foolishness' merrily goes on throughout the many booze-halls and cat-houses of P.A.C.K. space.",,,,,
+Oblonsky pilots are revered, ridiculed, and argued over in P.A.C.K. bars wherever the old question of bravery versus foolishness has not yet been settled.",,,,,
 pack_spinone,SHIP,"A P.A.C.K. Cruiser with one notable strength - it is capable of maintaining 3 fighter wings on the battlefield.
 
 Otherwise would only ever be described as 'adequate' - but with a moderately efficient shield and a reasonable logistical footprint, it provides a useful means for the P.A.C.K. fleet to bring any one of a number of Gunships to the field.
 
-The craft is complete with an integrated, complex comms and control array capable of instigating 'Trilateral Augmentation Algorithms' via her gunships or fighters - using quantum computing to create a short term possibilities-forecast through interlinking carrier & fighter intel to greatly improve the fighters navigational processors over a brief period.",,,,,
-pack_GFB,SHIP,"The Griffon Fauve de Bretagne - or more often referred to as GFB - is a destroyer-level combat carrier with an in-built Ivan Gunship wing, plus capability to mount one more of any other sector-wide modular fighter or gunship LPC.
+The craft carries an integrated comms and control array capable of initiating Trilateral Augmentation Algorithms through its gunships and fighters. The system uses quantum forecasting and interlinked carrier-wing telemetry to briefly sharpen fighter navigation beyond normal limits.",,,,,
+pack_GFB,SHIP,"The Griffon Fauve de Bretagne, more commonly shortened to GFB, is a destroyer-scale combat carrier with an integrated Ivan gunship wing and room for one additional modular fighter or gunship LPC.
 
-Relatively heavily armored, and highly mobile - this is a real front-line carrier with potentially devastating combat potential.",,,,,
+Heavily armored for its size and unusually mobile, it is a true front-line carrier with serious combat potential.",,,,,
 pack_BRT_canebianco,SHIP,"This Black Russian Terrier (BRT) is a heavily modified version with an operating flight deck substituted in place of the normally forward-facing smaller weaponry of her cousin.
 
 Canebianco technicians have baked-in advanced optics to supplement the retained Affenpinscher and any other beam weaponry the commander may wish to outfit within the two medium modular energy mounts.
 
-Still kitted out with versatile mounts and reasonable flux management - it can be outfitted with a defensive or offensive standpoint. The large bridge structure allows for a relatively high personnel capacity.",,,,,
+Its versatile mounts and reasonable flux management let it serve in either defensive or offensive configurations. The large bridge structure also allows for a relatively high personnel capacity.",,,,,
 pack_bullykutta,SHIP,"The Bully Kutta is a cumbersome but effective missile cruiser, which was originally designed to operate as an atmospheric landing vessel in politically and naturally hostile environments.
 
 Due to the generous complement of missiles and unusually thick armour plating (allowing it to enter atmospheres and also to remain intact against the self-generated engine thrusts necessary to do so safely) this finds great use as a real heavy hitter – but due to the low mobility can find it difficult to engage threats without coordinated fleet maneuvers generating sufficient interference elsewhere.",,,,,
@@ -240,10 +240,10 @@ pack_engine_divert,SHIP_SYSTEM,Crew divert their attention from major ship syste
 pack_keflusker,SHIP_SYSTEM,"The engine is temporarily increased in thrust and controls locked. Allows limited increase in battlefield mobility, as long as you want to go in a straight line.
 
 Borrowing a lot of technology from the commonly applied Expansion-tech 'Burn Drive', this particular system is ostensibly a reverse engineered; modified version of the same which allows the shield to remain active whilst limiting total active power. On activation the crew are - every time - met by the holo-signature of revered Canebianco technician 'Tricot Raye' dramatically explaining the relevant safety-protocols. Such was the technical skill (and ego) of Raye in the implementation, ongoing PACK-wide efforts to unlock and circumvent this repetitive, overdone and badly delivered soliloquy are failing.",Movement,"The engine is temporarily increased in thrust and controls locked. Allows limited increase in battlefield mobility, as long as you want to go in a straight line.",,,
-pack_flux_divert,SHIP_SYSTEM,"The crew divert their attention from engine related issues towards the shield, allowing the shield flux management systems to operate more efficiently.",,,,,
+pack_flux_divert,SHIP_SYSTEM,"The crew diverts attention from engine management to shield control, allowing shield flux systems to operate more efficiently.",,,,,
 pack_trilat_algorithms,SHIP_SYSTEM,"A trilateral comms link is engaged between the carrier and each wing using an on-board single-threaded quantum CPU. The automated feedback-loops alternate between three craft at a time; creating a 'possibilities-forecast' matrix - predicting optimal courses of navigation and collision avoidance for all forseeable courses of action over a brief period.
 
-This enhanced intel-map allows each fighter to push their speed and maneuverability envelope well over the norm whilst still maintaining collision events within tolerance.",Fighter,This enhanced intel-map allows each fighter to push their speed and maneuverability envelope well over the norm whilst still maintaining collision events within tolerance.,,,
+This enhanced tactical map lets each fighter push speed and maneuverability beyond normal limits while keeping collision risk within acceptable tolerances.",Fighter,This enhanced tactical map lets each fighter push speed and maneuverability beyond normal limits while keeping collision risk within acceptable tolerances.,,,
 junk_pirates_burst_jets,SHIP_SYSTEM,"Pre-charged cylinders of various cryo-gases are discharged into the various engine mechanisms aboard the ship – allowing the engines to run hot, boosting ship mobility temporarily. The discarded cylinders or ‘plugs’ carry a significant electrostatic charge and have been known to provide a suitable level of interference against minor missile threats on the battlefield.",Movement,Increases mobility and provides for flare-like discharge of cryo-liquid ‘plugs’.,,,
 junk_pirates_kraken_retreat,SHIP_SYSTEM,"The Mass Ejection Retreat MechANism or MERMAN allows the hulking, lumbering, virtually immobile bulk of an overcommitted and inevitably overfluxed Kraken to go backwards relatively quickly.
 

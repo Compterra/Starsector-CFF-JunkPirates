@@ -27,6 +27,10 @@ public class KrakenRetreatSystemAI implements ShipSystemAIScript {
 
     @Override
     public void advance(float amount, Vector2f missileDangerDir, Vector2f collisionDangerDir, ShipAPI target) {
+        if (ship == null || ship.getSystem() == null || ship.isHulk()) {
+            return;
+        }
+
         tracker.advance(amount);
         Vector2f shipLoc = ship.getLocation();
 
@@ -35,10 +39,11 @@ public class KrakenRetreatSystemAI implements ShipSystemAIScript {
             if (!AIUtils.canUseSystemThisFrame(ship)) {
                 return;
             }
-            FluxTrackerAPI fluxMonitor = ship.getFluxTracker(); // Allows us to set different parameters for hitting the button
+            FluxTrackerAPI fluxMonitor = ship.getFluxTracker();
+            if (fluxMonitor == null || fluxMonitor.getMaxFlux() <= 0f || ship.getMaxHitpoints() <= 0f) {
+                return;
+            }
             float fluxLevel = fluxMonitor.getFluxLevel();
-            //float hardFluxLevel = fluxMonitor.getHardFlux() / fluxMonitor.getMaxFlux(); // Not interested for Kraken
-            //we might think about skewing the decisions against hitpoints?        
             boolean shouldUseSystem = false;
             
             float missileRadius;
@@ -54,11 +59,8 @@ public class KrakenRetreatSystemAI implements ShipSystemAIScript {
             
             List<ShipAPI> nearbyEnemies = AIUtils.getNearbyEnemies(ship, shipRadius);
             List<ShipAPI> notSoNearEnemies = AIUtils.getNearbyEnemies(ship, noPressureRadius);
-//we're checking out if there are numerous enemies near us; might need to know
             List<MissileAPI> nearbyMissiles = AIUtils.getNearbyEnemyMissiles(ship, missileRadius);
-//Need to see whether we think we should use it as a flare system
             List<DamagingProjectileAPI> nearbyBullets = CombatUtils.getProjectilesWithinRange(shipLoc, projRadius);
-//Is shit going down?
 
             /* Filter to just enemy bullets */
             Iterator<DamagingProjectileAPI> iter = nearbyBullets.iterator();
@@ -67,18 +69,17 @@ public class KrakenRetreatSystemAI implements ShipSystemAIScript {
                 if ((nearbyBullet.getOwner() == 100) || (nearbyBullet.getOwner() == ship.getOwner())) {
                     iter.remove();
                 }
-// to do create a threat matrix on numbers bullets / ships / projectiles etc. to better nuance the below
-                if (    fluxLevel > 0.85f && nearbyEnemies.size() > 0 && nearbyBullets.size() > 0 || // combined threat; high flux
-                        fluxLevel > 0.85f && nearbyEnemies.size() > 0 && nearbyMissiles.size() > 0 || // combined threat; high flux
-                        fluxLevel > 0.8f && nearbyEnemies.size() > 3 || // getting crowded; high flux
-                        fluxLevel > 0.92f && nearbyBullets.size() > 0 || // threat; very high flux
-                        fluxLevel > 0.92f && nearbyMissiles.size() > 0 || // threat; very high flux
-                        fluxLevel > 0.8f && hitPoints <= 0.5f && notSoNearEnemies.size() > 0|| // in peril; try anything
-                        fluxLevel > 0.7f && nearbyEnemies.size() > 0 && nearbyMissiles.size() > 5 || // bigger threat medium high flux
-                        fluxLevel > 0.4f && nearbyEnemies.size() > 0 && nearbyMissiles.size() > 10) // heavy missile threat
-                {
-                    shouldUseSystem = true;
-                }
+            }
+
+            if (fluxLevel > 0.85f && nearbyEnemies.size() > 0 && nearbyBullets.size() > 0
+                    || fluxLevel > 0.85f && nearbyEnemies.size() > 0 && nearbyMissiles.size() > 0
+                    || fluxLevel > 0.8f && nearbyEnemies.size() > 3
+                    || fluxLevel > 0.92f && nearbyBullets.size() > 0
+                    || fluxLevel > 0.92f && nearbyMissiles.size() > 0
+                    || fluxLevel > 0.8f && hitPoints <= 0.5f && notSoNearEnemies.size() > 0
+                    || fluxLevel > 0.7f && nearbyEnemies.size() > 0 && nearbyMissiles.size() > 5
+                    || fluxLevel > 0.4f && nearbyEnemies.size() > 0 && nearbyMissiles.size() > 10) {
+                shouldUseSystem = true;
             }
                 
             // If system is inactive and should be active, enable it
