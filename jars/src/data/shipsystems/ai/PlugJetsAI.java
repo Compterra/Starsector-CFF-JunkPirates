@@ -27,6 +27,10 @@ public class PlugJetsAI implements ShipSystemAIScript {
 
     @Override
     public void advance(float amount, Vector2f missileDangerDir, Vector2f collisionDangerDir, ShipAPI target) {
+        if (ship == null || ship.getSystem() == null || ship.isHulk()) {
+            return;
+        }
+
         tracker.advance(amount);
         Vector2f shipLoc = ship.getLocation();
 
@@ -35,28 +39,25 @@ public class PlugJetsAI implements ShipSystemAIScript {
             if (!AIUtils.canUseSystemThisFrame(ship)) {
                 return;
             }
-            FluxTrackerAPI fluxMonitor = ship.getFluxTracker(); // mainly an issue for the tangerine; but other stuff might need to know
+            FluxTrackerAPI fluxMonitor = ship.getFluxTracker();
+            if (fluxMonitor == null || fluxMonitor.getMaxFlux() <= 0f) {
+                return;
+            }
             float fluxLevel = fluxMonitor.getFluxLevel();
-            float hardFluxLevel = fluxMonitor.getHardFlux() / fluxMonitor.getMaxFlux(); // tangerine is interested as this affects speed boost
-            
-            // if (ship.getId() == "junk_pirates_tangerine") { // if we are installed on the tangerine, there are a couple of extra things we need to be aware of
-            
+
             boolean shouldUseSystem = false;
-            
+
             float missileRadius;
             float shipRadius;
             float projRadius;
-            
+
             missileRadius = 350f;
             shipRadius = 700f;
             projRadius = 300f;
-            
+
             List<ShipAPI> nearbyEnemies = AIUtils.getNearbyEnemies(ship, shipRadius);
-//we're checking out if there are numerous enemies near us; might need to know
             List<MissileAPI> nearbyMissiles = AIUtils.getNearbyEnemyMissiles(ship, missileRadius);
-//Need to see whether we think we should use the flare system
             List<DamagingProjectileAPI> nearbyBullets = CombatUtils.getProjectilesWithinRange(shipLoc, projRadius);
-//Is shit going down?
 
             /* Filter to just enemy bullets */
             Iterator<DamagingProjectileAPI> iter = nearbyBullets.iterator();
@@ -67,13 +68,12 @@ public class PlugJetsAI implements ShipSystemAIScript {
                 }
             }
 // to do - make this a little better ...
-            if (ship.getId() == "junk_pirates_tangerine") { //  the tangerine is a different kettle of fish
-                if (ship.getSystem().getAmmo() > 1) { // we want to consider how we behave when we have 2 charges vs 1
-                    // Tangerine wants to go like fuck; needs a reckless officer. But it wants to hold off a charge for when it overloads / flamesout.
+            if ("junk_pirates_tangerine".equals(ship.getId())) {
+                if (ship.getSystem().getAmmo() > 1) { // consider behavior with two charges vs one
                     if ( !ship.areAnyEnemiesInRange() || nearbyMissiles.size() > 2 ||
-                            fluxLevel > 0.95f && nearbyEnemies.size() > 0 && nearbyBullets.size() > 0 || //dump electrochaff for shits and giggles
-                            ship.isRetreating() || // if we have 2 charges and are retreating, lets go
-                            ship.areAnyEnemiesInRange() && fluxLevel < 0.2f) { // if we are fucking about; let's drop it
+                            fluxLevel > 0.95f && nearbyEnemies.size() > 0 && nearbyBullets.size() > 0 || // emergency chaff burst
+                            ship.isRetreating() ||
+                            ship.areAnyEnemiesInRange() && fluxLevel < 0.2f) {
                         shouldUseSystem = true;
                     }
                 } else { // we have 1 or less charges
@@ -85,7 +85,7 @@ public class PlugJetsAI implements ShipSystemAIScript {
                             fluxLevel > 0.95f && nearbyEnemies.size() > 0 && nearbyBullets.size() > 0 || // threat
                             fluxLevel > 0.7f && nearbyEnemies.size() > 1 && nearbyMissiles.size() > 3 || // bigger threat
                             fluxLevel > 0.4f && nearbyMissiles.size() > 5 || // heavy missile threat
-                            ship.isRetreating() && fluxLevel > 0.2f) // we want to get the fuck out of dodge and we are under pressure
+                            ship.isRetreating() && fluxLevel > 0.2f) // retreating under pressure
                     {
                         shouldUseSystem = true;
                     }
@@ -93,8 +93,8 @@ public class PlugJetsAI implements ShipSystemAIScript {
             } else { // ship is not the tangerine
                 if (ship.getSystem().getAmmo() > 1) { // we want to consider how we behave when we have 2 charges vs 1
                     if ( !ship.areAnyEnemiesInRange() || nearbyMissiles.size() > 2 ||
-                            ship.isRetreating() || // if we have 2 charges and are retreating, lets go
-                            ship.areAnyEnemiesInRange() && fluxLevel < 0.2f) { // if we are fucking about; let's drop it
+                            ship.isRetreating() ||
+                            ship.areAnyEnemiesInRange() && fluxLevel < 0.2f) {
                         shouldUseSystem = true;
                     }
                 } else { // we have 1 or less charges
@@ -103,13 +103,13 @@ public class PlugJetsAI implements ShipSystemAIScript {
                             //ship.getEngineController().isFlamedOut() && nearbyMissiles.size() > 2 || // threat ...
                             //ship.getEngineController().isFlamedOut() && nearbyBullets.size() > 2 || // threat ...
                             nearbyMissiles.size() > 5 ||
-                            ship.isRetreating() && fluxLevel > 0.2f ) // we want to get the fuck out of dodge and we are under pressure) // heavy missile threat
+                            ship.isRetreating() && fluxLevel > 0.2f ) // retreating under pressure
                     {
                         shouldUseSystem = true;
                     }
                 }
             }
-                
+
             // If system is inactive and should be active, enable it
             // If system is active and shouldn't be, disable it
             if (ship.getSystem().isActive() ^ shouldUseSystem) {
@@ -122,5 +122,5 @@ public class PlugJetsAI implements ShipSystemAIScript {
     public void init(ShipAPI ship, ShipSystemAPI system, ShipwideAIFlags flags, CombatEngineAPI engine) {
         this.ship = ship;
     }
-    
+
 }

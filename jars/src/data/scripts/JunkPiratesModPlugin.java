@@ -35,7 +35,7 @@ public class JunkPiratesModPlugin extends BaseModPlugin
 
     public static final boolean isExerelin;
     public static final boolean isIndEvo;
-    
+
     public static boolean enableASP;
     public static boolean enableASPCourierFleets;
     public static boolean enableASPHitSquads;
@@ -43,13 +43,13 @@ public class JunkPiratesModPlugin extends BaseModPlugin
     public static boolean enablePACKDiplomats;
     public static boolean enableJunkPirates;
     public static boolean enableJunkExplorers;
-    
+
     public static boolean enableJunkPiratesIntel;
-    
+
     public static float junkPiratesFleetFrequencyModifier;
     public static float junkPiratesMaxFleetModifier;
-    
-//    
+
+//
 //    public static int minAnarchistConstellations;
 //    public static int maxAnarchistConstellations;
 //
@@ -57,7 +57,7 @@ public class JunkPiratesModPlugin extends BaseModPlugin
 //
 //    public static boolean enableProcGen;
 //    public static boolean enableSpinerettes;
-    
+
     static
     {
         boolean foundExerelin;
@@ -72,7 +72,7 @@ public class JunkPiratesModPlugin extends BaseModPlugin
         }
         isExerelin = foundExerelin;
     }
-    
+
     static
     {
         boolean foundIndEvo;
@@ -95,9 +95,9 @@ public class JunkPiratesModPlugin extends BaseModPlugin
         }
         isIndEvo = foundIndEvo;
     }
-    
-    
-    
+
+
+
     private static void getProcGenSettings() {
         enableASP = JunkPiratesSettings.getBoolean("enableASP", true);
         enableASPCourierFleets = JunkPiratesSettings.getBoolean("enableASPCourierFleets", true);
@@ -112,7 +112,7 @@ public class JunkPiratesModPlugin extends BaseModPlugin
         junkPiratesFleetFrequencyModifier = JunkPiratesSettings.getFloat("junkPiratesFleetFrequencyModifier", 1f);
         junkPiratesMaxFleetModifier = JunkPiratesSettings.getFloat("junkPiratesMaxFleetModifier", 1f);
     }
-    
+
     private static void initJunkPirates() {
         ensureBountyParticipation();
         new JunkGen().generate(Global.getSector());
@@ -165,7 +165,7 @@ public class JunkPiratesModPlugin extends BaseModPlugin
 
     private static void ensureGlobalScripts() {
         if (enableASPCourierFleets && !Global.getSector().hasScript(SyndicateAspFleetManager.class)) {
-            Global.getSector().addScript(new SyndicateAspFleetManager());
+            Global.getSector().addTransientScript(new SyndicateAspFleetManager());
         }
 
         if (enableASPCourierFleets && enableASPHitSquads) {
@@ -173,12 +173,12 @@ public class JunkPiratesModPlugin extends BaseModPlugin
                 Global.getSector().getMemoryWithoutUpdate().set(MEMKEY_ASP_WANTED, false);
             }
             if (!Global.getSector().hasScript(SyndicateAspHitSquadFleetManager.class)) {
-                Global.getSector().addScript(new SyndicateAspHitSquadFleetManager());
+                Global.getSector().addTransientScript(new SyndicateAspHitSquadFleetManager());
             }
         }
 
         if (enableJunkExplorers && !Global.getSector().hasScript(JunkPiratesExplorerFleetManager.class)) {
-            Global.getSector().addScript(new JunkPiratesExplorerFleetManager());
+            Global.getSector().addTransientScript(new JunkPiratesExplorerFleetManager());
         }
     }
 
@@ -190,15 +190,15 @@ public class JunkPiratesModPlugin extends BaseModPlugin
             addNexerelinRandommodeShips();
         }
         ensureGlobalScripts();
-        
-        
+
+
 //        if (enablePACKDiplomats) {
 //            to do
 //        }
 //        if (enableJunkExplorers) {
 //            to do
 //        }
-                         
+
     }
     @Override
     public void onNewGame() {
@@ -217,7 +217,7 @@ public class JunkPiratesModPlugin extends BaseModPlugin
         }
         ensureGlobalScripts();
     }
-    
+
     private static void ensureThemeGeneratorRegistered() {
         for (Object generator : SectorThemeGenerator.generators) {
             if (generator instanceof JunkPiratesAnarchistThemeGenerator) return;
@@ -227,15 +227,15 @@ public class JunkPiratesModPlugin extends BaseModPlugin
     }
 
     public static void addNexerelinRandommodeShips() {
-       
+
         List<String> aspships = new ArrayList<String>();
-        
+
         aspships.add("syndicate_asp_hognose_p");
         aspships.add("syndicate_asp_kingcobra_p");
         aspships.add("syndicate_asp_diamondback_p");
         aspships.add("syndicate_asp_copperhead_p");
         aspships.add("syndicate_asp_gigantophis_p");
-        
+
         FactionAPI faction = Global.getSector().getFaction("syndicate_asp");
         if (faction == null) return;
         for (String id : aspships) {
@@ -252,16 +252,16 @@ public class JunkPiratesModPlugin extends BaseModPlugin
 //        initJunkPirates();
 //    }
 
-    @Override  
+    @Override
     public void onApplicationLoad()
-    {  
-    
+    {
+
         ensureThemeGeneratorRegistered();
-        
+
         getProcGenSettings();
-        
-        ShaderLib.init();  
-        LightData.readLightDataCSV("data/lights/junk_pirates_light_data.csv");  
-        TextureData.readTextureDataCSV("data/lights/junk_pirates_texture_data.csv");  
+
+        ShaderLib.init();
+        LightData.readLightDataCSV("data/lights/junk_pirates_light_data.csv");
+        TextureData.readTextureDataCSV("data/lights/junk_pirates_texture_data.csv");
     }
 }
