@@ -44,7 +44,8 @@ public class JunkPiratesExplorerFleetManager extends BaseCampaignEventListener i
         super(true);
         
         float interval = Global.getSettings().getFloat("averagePatrolSpawnInterval");
-        tracker = new IntervalUtil(interval * 0.45f / junkPiratesFleetFrequencyModifier, interval * 0.75f / junkPiratesFleetFrequencyModifier);
+        float frequency = Math.max(0.1f, junkPiratesFleetFrequencyModifier);
+        tracker = new IntervalUtil(interval * 0.45f / frequency, interval * 0.75f / frequency);
         
     }
 
@@ -59,6 +60,8 @@ public class JunkPiratesExplorerFleetManager extends BaseCampaignEventListener i
     @Override
     public void advance(float amount) {
         
+        if (Global.getSector() == null || Global.getSector().getEconomy() == null || Global.getSector().getClock() == null) return;
+        pruneInactiveFleets();
         float days = Global.getSector().getClock().convertToDays(amount);
         
         tracker.advance(days);
@@ -84,7 +87,12 @@ public class JunkPiratesExplorerFleetManager extends BaseCampaignEventListener i
         
     }
     
+    protected void pruneInactiveFleets() {
+        activeJunkFleets.removeIf(data -> data == null || data.fleet == null || !data.fleet.isAlive());
+    }
+
     protected int getMaxFleets() {
+        if (Global.getSector() == null || Global.getSector().getEconomy() == null) return 0;
         int numMarkets = Global.getSector().getEconomy().getNumMarkets();
         int maxBasedOnMarket = (int) ( numMarkets * junkPiratesMaxFleetModifier / 6 ); //numMarkets * 2 is vanilla equivalent for Economy fleets. We want to be well below this.
         return Math.max(3, maxBasedOnMarket); // probably want to externalise this in mendoncaModSettings? 3, or more
@@ -151,9 +159,7 @@ public class JunkPiratesExplorerFleetManager extends BaseCampaignEventListener i
     public static JunkPiratesExplorerData createData(MarketAPI from) {
         if (!isValidMarket(from)) return null;
                      
-        CampaignFleetAPI placeHolder = FleetFactoryV3.createEmptyFleet("junk_pirates", FleetTypes.MERC_PRIVATEER, from);
-        
-        JunkPiratesExplorerData data = new JunkPiratesExplorerData(placeHolder);
+        JunkPiratesExplorerData data = new JunkPiratesExplorerData(null);
         
 //        public String mission;
 //        public float startingFP;

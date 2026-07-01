@@ -114,13 +114,17 @@ public class JunkPiratesTangerineBlue extends BaseHullMod {
                 }
             }
             int targetMaxCount = mcount + scount;
+            if (targetMaxCount <= 0) {
+                timestamp = 0f;
+                return;
+            }
 
             float chaffdam = 450;
             float chaffemp = 250;
             
             if(!chaffed.isEmpty()) {
                 CombatEntityAPI x = chaffed.get(0);
-                if (MathUtils.getRandomNumberInRange(0, targetMaxCount) <= scount) {
+                if (scount > 0 && MathUtils.getRandomNumberInRange(0, targetMaxCount) <= scount) {
                     target = stargets.pick();
                 } else {
                     target = mtargets.pick();
@@ -149,7 +153,7 @@ public class JunkPiratesTangerineBlue extends BaseHullMod {
                     float emp = 180;
 
 
-                    if (MathUtils.getRandomNumberInRange(0, targetMaxCount) <= scount) {
+                    if (scount > 0 && MathUtils.getRandomNumberInRange(0, targetMaxCount) <= scount) {
                         target = stargets.pick();
                     } else {
                         target = mtargets.pick();

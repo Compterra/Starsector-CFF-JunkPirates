@@ -49,7 +49,8 @@ public class SyndicateAspHitSquadFleetManager extends BaseCampaignEventListener 
         super(true);
         
         float interval = Global.getSettings().getFloat("averagePatrolSpawnInterval");
-        tracker = new IntervalUtil(interval * 0.5f / junkPiratesFleetFrequencyModifier, interval * .75f / junkPiratesFleetFrequencyModifier);
+        float frequency = Math.max(0.1f, junkPiratesFleetFrequencyModifier);
+        tracker = new IntervalUtil(interval * 0.5f / frequency, interval * .75f / frequency);
         
     }
 
@@ -71,6 +72,8 @@ public class SyndicateAspHitSquadFleetManager extends BaseCampaignEventListener 
     @Override
     public void advance(float amount) {
         
+        if (Global.getSector() == null || Global.getSector().getEconomy() == null || Global.getSector().getClock() == null) return;
+        pruneInactiveFleets();
         float days = Global.getSector().getClock().convertToDays(amount);
         
         tracker.advance(days);
@@ -114,7 +117,12 @@ public class SyndicateAspHitSquadFleetManager extends BaseCampaignEventListener 
 //            return ASP_SOURCE_ID;
 //    }
     
+    protected void pruneInactiveFleets() {
+        activeAspHitFleets.removeIf(data -> data == null || data.fleet == null || !data.fleet.isAlive());
+    }
+
     protected int getMaxFleets() {
+        if (Global.getSector() == null || Global.getSector().getEconomy() == null) return 0;
         int numMarkets = Global.getSector().getEconomy().getNumMarkets();
         int maxBasedOnMarket = (int) ( numMarkets * junkPiratesMaxFleetModifier / 6 ); //numMarkets * 2 is vanilla equivalent for Economy fleets. We want to be well below this.
         return Math.max(3, maxBasedOnMarket ); // probably want to externalise this in mendoncaModSettings? 3, or more in huge world
@@ -185,9 +193,7 @@ public class SyndicateAspHitSquadFleetManager extends BaseCampaignEventListener 
     public static AspHitSquadData createData(MarketAPI from, MarketAPI to) {
         if (!isValidMarket(from) || !isValidMarket(to)) return null;
                      
-        CampaignFleetAPI placeHolder = FleetFactoryV3.createEmptyFleet("syndicate_asp", FleetTypes.MERC_PRIVATEER, from);
-        
-        AspHitSquadData data = new AspHitSquadData(placeHolder);
+        AspHitSquadData data = new AspHitSquadData(null);
         
 //        public String mission;
 //        public float startingFP;
@@ -360,6 +366,7 @@ public class SyndicateAspHitSquadFleetManager extends BaseCampaignEventListener 
 
     @Override
     public void reportPlayerEngagement(EngagementResultAPI result) {
+        if (result == null || Global.getSector() == null) return;
         boolean player_won = result.didPlayerWin();
         if (!player_won) {
             Global.getSector().getMemoryWithoutUpdate().set("$playerIsAspWanted", false); // given the player a hiding. Happy, for now.

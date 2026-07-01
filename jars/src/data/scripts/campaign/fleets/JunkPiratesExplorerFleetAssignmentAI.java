@@ -60,7 +60,7 @@ public class JunkPiratesExplorerFleetAssignmentAI implements EveryFrameScript {
     public void advance(float amount) {
         //SectorEntityToken home = data.from.getPrimaryEntity();
         
-        if (!isRouteValid()) return;
+        if (!isRouteValid() || fleet.getAI() == null) return;
         if (fleet.getAI().getCurrentAssignment() != null) { // there is a command to action
             if (data.to.getPrimaryEntity() == null) { // nowhere to go
                 fleet.clearAssignments();
@@ -81,9 +81,9 @@ public class JunkPiratesExplorerFleetAssignmentAI implements EveryFrameScript {
                 MarketAPI partyPlanet = findPartyPlanet();
                 
                 if (partyPlanet != null) {
-                    log.info("Junk Explorer, " + data.fleet.getCommander().getNameString() + " wants to party at " + partyPlanet.getName());
+                    log.info("Junk Explorer, " + fleetCommanderName() + " wants to party at " + partyPlanet.getName());
                 } else {
-                    log.info("Junk Explorer, " + data.fleet.getCommander().getNameString() + " can't party today. Sadface.");
+                    log.info("Junk Explorer, " + fleetCommanderName() + " can't party today. Sadface.");
                 }
                 
                 if (data.fleet != null && isValidDestination(partyPlanet)) {
@@ -102,9 +102,9 @@ public class JunkPiratesExplorerFleetAssignmentAI implements EveryFrameScript {
                 MarketAPI friendlyTrollPort = findBaseToTrollSystemFrom();
                 
                 if (friendlyTrollPort != null) {
-                    log.info("Junk Explorer, " + data.fleet.getCommander().getNameString() + " wants to troll around from " + friendlyTrollPort.getName());
+                    log.info("Junk Explorer, " + fleetCommanderName() + " wants to troll around from " + friendlyTrollPort.getName());
                 } else {
-                    log.info("Junk Explorer, " + data.fleet.getCommander().getNameString() + " can't troll today. Not good.");
+                    log.info("Junk Explorer, " + fleetCommanderName() + " can't troll today. Not good.");
                 }
                 
                 if (data.fleet != null && isValidDestination(friendlyTrollPort)) {
@@ -383,7 +383,7 @@ public class JunkPiratesExplorerFleetAssignmentAI implements EveryFrameScript {
 	}
 
         protected String playerName() {
-            if (Global.getSector().getPlayerPerson() == null) return "the target";
+            if (Global.getSector() == null || Global.getSector().getPlayerPerson() == null) return "the target";
             return Global.getSector().getPlayerPerson().getNameString();
         }
 
@@ -394,7 +394,7 @@ public class JunkPiratesExplorerFleetAssignmentAI implements EveryFrameScript {
         
         protected String factionDisplayName(String faction) {
             
-            if (faction == null || Global.getSector().getFaction(faction) == null) return "local";
+            if (Global.getSector() == null || faction == null || Global.getSector().getFaction(faction) == null) return "local";
             String factionName = Global.getSector().getFaction(faction).getDisplayName();
             
             return factionName;
@@ -405,7 +405,7 @@ public class JunkPiratesExplorerFleetAssignmentAI implements EveryFrameScript {
                 
                 if (data.to == null) return "Choosing a destination";
                 if ("troll_about".equals(data.mission)) {
-                    return "Preparing for local raids in " + data.to.getStarSystem().getBaseName();
+                    return "Preparing for local raids in " + systemName(data.to);
                 } else if ("go_party".equals(data.mission)) {
                     return randomPartyActivity() + " at " + data.to.getName();
                 }
@@ -452,13 +452,13 @@ public class JunkPiratesExplorerFleetAssignmentAI implements EveryFrameScript {
         protected String getReturningActionText() {
             // Done. Either going back because run out of gas (failed) or successful attack on player (won).
             // Decide whether to be happy or sad or just non-specific.
-            return "Returning back to " + data.from.getName(); // from shouldn't change for a fleet,
+            return "Returning back to " + marketName(data.from); // from shouldn't change for a fleet,
         }
         
         protected String getMissionText() {
             // Done. Either going back because run out of gas (failed) or successful attack on player (won).
             // Decide whether to be happy or sad or just non-specific.
-            return "Returning back to " + data.from.getName(); // from shouldn't change for a fleet,
+            return "Returning back to " + marketName(data.from); // from shouldn't change for a fleet,
         }
 	
 	protected String getTravelActionText() {
@@ -468,9 +468,9 @@ public class JunkPiratesExplorerFleetAssignmentAI implements EveryFrameScript {
             
             String missionText = "Traveling";
 
-            if ( "troll_about".equals(mission)) missionText = "Traveling to " + data.to.getName();
-            if ( "go_party".equals(mission)) missionText = "Exploring; Traveling to " + data.to.getName() + " in the " + data.to.getStarSystem().getBaseName() + " system";
-            if ( "mission_complete".equals(mission)) missionText = "Returning to " + data.from.getName();
+            if ( "troll_about".equals(mission)) missionText = "Traveling to " + marketName(data.to);
+            if ( "go_party".equals(mission)) missionText = "Exploring; Traveling to " + marketName(data.to) + " in the " + systemName(data.to) + " system";
+            if ( "mission_complete".equals(mission)) missionText = "Returning to " + marketName(data.from);
                 
                 if (mission.isEmpty()) {
                         return "traveling to " + getData().to.getName();
@@ -492,9 +492,17 @@ public class JunkPiratesExplorerFleetAssignmentAI implements EveryFrameScript {
         @Override
         public boolean isDone()
         {
-            return !fleet.isAlive();
+            return fleet == null || !fleet.isAlive();
         }
 	
+	protected String marketName(MarketAPI market) {
+            return market != null ? market.getName() : "unknown";
+        }
+
+        protected String systemName(MarketAPI market) {
+            return market != null && market.getStarSystem() != null ? market.getStarSystem().getBaseName() : "unknown";
+        }
+
 	protected JunkPiratesExplorerData getData() {
                 
                 return data;
@@ -502,7 +510,6 @@ public class JunkPiratesExplorerFleetAssignmentAI implements EveryFrameScript {
 	
 }
 	
-
 
 
 

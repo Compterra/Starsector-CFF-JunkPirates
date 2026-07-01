@@ -287,22 +287,31 @@ public class VayraElectroChaffAndJunkjetPlugin extends BaseEveryFrameCombatPlugi
             if (VAYRA_DEBUG) {
                 log.info(String.format("didn't find a min/max chaff for [%s] in the list, loading from weapon_data.csv", weaponId));
             }
-            String weaponData = actualWeapon.getSpec().getCustomPrimaryHL();
+            String weaponData = actualWeapon.getSpec() != null ? actualWeapon.getSpec().getCustomPrimaryHL() : null;
+            if (weaponData == null) weaponData = "";
             int splitIndex = weaponData.indexOf("Electrostatic Chaff");
             if (VAYRA_DEBUG) {
                 log.info(String.format("loaded splitIndex [%s]", splitIndex));
             }
-            String subString = null;
-            if (splitIndex > 0) {
+            String subString = "";
+            if (splitIndex >= 4) {
                 subString = weaponData.substring(splitIndex - 4, splitIndex).trim();
             }
             try {
+                if (subString.length() < 3) {
+                    throw new NumberFormatException("missing chaff min/max data");
+                }
                 min = Integer.valueOf(subString.substring(0, 1));
                 max = Integer.valueOf(subString.substring(subString.length() - 1, subString.length()));
                 // if we don't find anything, use 1-1
-            } catch (NumberFormatException ex) {
+            } catch (RuntimeException ex) {
                 min = 1;
                 max = 1;
+            }
+            if (min > max) {
+                int temp = min;
+                min = max;
+                max = temp;
             }
             if (VAYRA_DEBUG) {
                 log.info(String.format("loaded subString [%s], min = [%s], max = [%s]", subString, min, max));

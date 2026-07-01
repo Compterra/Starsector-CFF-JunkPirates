@@ -218,6 +218,14 @@ public class JunkPiratesModPlugin extends BaseModPlugin
         ensureGlobalScripts();
     }
     
+    private static void ensureThemeGeneratorRegistered() {
+        for (Object generator : SectorThemeGenerator.generators) {
+            if (generator instanceof JunkPiratesAnarchistThemeGenerator) return;
+        }
+        int index = Math.min(1, SectorThemeGenerator.generators.size());
+        SectorThemeGenerator.generators.add(index, new JunkPiratesAnarchistThemeGenerator());
+    }
+
     public static void addNexerelinRandommodeShips() {
        
         List<String> aspships = new ArrayList<String>();
@@ -248,7 +256,7 @@ public class JunkPiratesModPlugin extends BaseModPlugin
     public void onApplicationLoad()
     {  
     
-        SectorThemeGenerator.generators.add(1, new JunkPiratesAnarchistThemeGenerator());
+        ensureThemeGeneratorRegistered();
         
         getProcGenSettings();
         

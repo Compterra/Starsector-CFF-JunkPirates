@@ -47,7 +47,7 @@ public class AspHitSquadFleetAssignmentAI implements EveryFrameScript {
     public void advance(float amount) {
         //SectorEntityToken home = data.from.getPrimaryEntity();
         
-        if (!isRouteValid()) return;
+        if (!isRouteValid() || fleet.getAI() == null) return;
         if (fleet.getAI().getCurrentAssignment() != null) { // there is a command to action
             if (data.to.getPrimaryEntity() == null) { // nowhere to go
                 fleet.clearAssignments();
@@ -90,10 +90,14 @@ public class AspHitSquadFleetAssignmentAI implements EveryFrameScript {
                         new AspHitSquadDepartureIntel(data);
                     }
                 }
-                fleet.addAssignment(FleetAssignment.INTERCEPT, Global.getSector().getPlayerFleet(), 7.0f); // spend a week on it
-                data.mission = "hunting";
+                if (Global.getSector().getPlayerFleet() != null) {
+                    fleet.addAssignment(FleetAssignment.INTERCEPT, Global.getSector().getPlayerFleet(), 7.0f); // spend a week on it
+                    data.mission = "hunting";
+                } else {
+                    data.mission = "then_what";
+                }
             } else if ("hunting".equals(data.mission)) { // we started but do we finish
-                if (Global.getSector().getPlayerFleet().isVisibleToSensorsOf(fleet)) { // target is visible to fleet sensors
+                if (Global.getSector().getPlayerFleet() != null && Global.getSector().getPlayerFleet().isVisibleToSensorsOf(fleet)) { // target is visible to fleet sensors
                     data.mission = "hunt_player";
                 } else { // lost contact
                     data.mission = "then_what";
@@ -127,7 +131,7 @@ public class AspHitSquadFleetAssignmentAI implements EveryFrameScript {
 
     public boolean playerStillWanted() {
         
-        return Global.getSector().getMemoryWithoutUpdate().getBoolean("$playerIsAspWanted");
+        return Global.getSector() != null && Global.getSector().getMemoryWithoutUpdate().getBoolean("$playerIsAspWanted");
      
     }
     
@@ -200,13 +204,13 @@ public class AspHitSquadFleetAssignmentAI implements EveryFrameScript {
 	}
 
         protected String playerName() {
-            if (Global.getSector().getPlayerPerson() == null) return "the target";
+            if (Global.getSector() == null || Global.getSector().getPlayerPerson() == null) return "the target";
             return Global.getSector().getPlayerPerson().getNameString();
         }
         
         protected String factionDisplayName(String faction) {
             
-            if (faction == null || Global.getSector().getFaction(faction) == null) return "local";
+            if (Global.getSector() == null || faction == null || Global.getSector().getFaction(faction) == null) return "local";
             String factionName = Global.getSector().getFaction(faction).getDisplayName();
             
             return factionName;
@@ -220,14 +224,14 @@ public class AspHitSquadFleetAssignmentAI implements EveryFrameScript {
         
         protected String getIntelActionText() {
                 // Looking for info on the player
-		return "Seeking intel on " + playerName() + " at " + getData().to.getName();
+		return "Seeking intel on " + playerName() + " at " + marketName(getData().to);
 	}
         
         
         protected String getReturningActionText() {
             // Done. Either going back because run out of gas (failed) or successful attack on player (won).
             // Decide whether to be happy or sad or just non-specific.
-            return "Returning back to " + data.from.getName(); // from shouldn't change for a fleet,
+            return "Returning back to " + marketName(data.from); // from shouldn't change for a fleet,
         }
 	
 	protected String getTravelActionText() {
@@ -244,10 +248,10 @@ public class AspHitSquadFleetAssignmentAI implements EveryFrameScript {
             if ( "then_what".equals(mission)) missionText = "Considering next action";
             if ( "hunt_player".equals(mission)) missionText = "Intercepting the known pirate " +  playerName();
             if ( "hunting".equals(mission)) missionText = "On the prowl for " + playerName();
-            if ( "mission_complete".equals(mission)) missionText = "Returning to " + data.from.getName();
+            if ( "mission_complete".equals(mission)) missionText = "Returning to " + marketName(data.from);
                 
                 if (mission == null || mission.isEmpty()) {
-                        return "traveling to " + getData().to.getName();
+                        return "traveling to " + marketName(getData().to);
                 } else {
                     return missionText;
                 }
@@ -266,9 +270,13 @@ public class AspHitSquadFleetAssignmentAI implements EveryFrameScript {
         @Override
         public boolean isDone()
         {
-            return !fleet.isAlive();
+            return fleet == null || !fleet.isAlive();
         }
 	
+	protected String marketName(MarketAPI market) {
+            return market != null ? market.getName() : "unknown";
+        }
+
 	protected AspHitSquadData getData() {
                 
                 return data;

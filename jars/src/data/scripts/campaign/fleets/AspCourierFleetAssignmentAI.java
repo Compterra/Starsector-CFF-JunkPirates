@@ -52,7 +52,7 @@ public class AspCourierFleetAssignmentAI implements EveryFrameScript {
     public void advance(float amount) {
         //SectorEntityToken home = data.from.getPrimaryEntity();
         
-        if (!isRouteValid()) return;
+        if (!isRouteValid() || fleet.getAI() == null) return;
         if (fleet.getAI().getCurrentAssignment() != null) { // there is a command to action
             if (data.to.getPrimaryEntity() == null) { // nowhere to go
                 fleet.clearAssignments();
@@ -67,7 +67,9 @@ public class AspCourierFleetAssignmentAI implements EveryFrameScript {
             if (orderedEscape) {
                 fleet.addAssignment(FleetAssignment.GO_TO_LOCATION_AND_DESPAWN, data.from.getPrimaryEntity(), 1000, "aborting mission");// go back whence they came and despawn
             } else if ("delivered".equals(data.mission)) { // no assignments and not esacping - get on with it
-                data.fleet.getCargo().clear();
+                if (data.fleet != null && data.fleet.getCargo() != null) {
+                    data.fleet.getCargo().clear();
+                }
                 fleet.addAssignment (FleetAssignment.GO_TO_LOCATION_AND_DESPAWN, data.from.getPrimaryEntity(), getOrbitDays(), getReturningActionText());
             } else {
                 fleet.addAssignment (FleetAssignment.ORBIT_PASSIVE, data.from.getPrimaryEntity(), getOrbitDays(), getStartingActionText());
@@ -136,7 +138,11 @@ public class AspCourierFleetAssignmentAI implements EveryFrameScript {
                 float tier = data.size;
 		
 		CargoAPI cargo = fleet.getCargo();
-		cargo.clear();
+                if (cargo == null) return;
+                data.cargoDeliver.clear();
+                data.specialDeliver.clear();
+                data.weaponDeliver.clear();
+                cargo.clear();
 		
                 if ("prisoner".equals(data.mission)) {
                     data.addDeliver(Commodities.CREW, (int) tier * 25);
@@ -204,13 +210,13 @@ public class AspCourierFleetAssignmentAI implements EveryFrameScript {
             if ( "items".equals(mission)) missionText = "Discussing terms with " + factionDisplayName(data.customerFaction) + " traders";
             if ( "money".equals(mission)) missionText = "Discussing terms with " + factionDisplayName(data.customerFaction) + " financiers";
             
-            return missionText + " at " + data.from.getName();
+            return missionText + " at " + marketName(data.from);
             
 	}
 
         protected String factionDisplayName(String faction) {
             
-            if (faction == null || Global.getSector().getFaction(faction) == null) return "local";
+            if (Global.getSector() == null || faction == null || Global.getSector().getFaction(faction) == null) return "local";
             String factionName = Global.getSector().getFaction(faction).getDisplayName();
             
             return factionName;
@@ -218,11 +224,11 @@ public class AspCourierFleetAssignmentAI implements EveryFrameScript {
         
 	protected String getEndingActionText() {
                 
-		return "Closing contract with " + factionDisplayName(data.customerFaction) + " representatives at " + getData().to.getName();
+		return "Closing contract with " + factionDisplayName(data.customerFaction) + " representatives at " + marketName(getData().to);
 	}
         
         protected String getReturningActionText() {
-            return "Returning back to " + data.from.getName();
+            return "Returning back to " + marketName(data.from);
         }
 	
 	protected String getTravelActionText() {
@@ -237,10 +243,10 @@ public class AspCourierFleetAssignmentAI implements EveryFrameScript {
                 if ( "money".equals(mission)) missionText = "Providing financial services";
                 
                 if (mission == null || mission.isEmpty()) {
-                        return "traveling to " + getData().to.getName();
+                        return "traveling to " + marketName(getData().to);
                 }
 
-                return missionText + " to " + getData().to.getName();
+                return missionText + " to " + marketName(getData().to);
 
 	}
 	
@@ -257,9 +263,13 @@ public class AspCourierFleetAssignmentAI implements EveryFrameScript {
         @Override
         public boolean isDone()
         {
-            return !fleet.isAlive();
+            return fleet == null || !fleet.isAlive();
         }
 	
+	protected String marketName(MarketAPI market) {
+            return market != null ? market.getName() : "unknown";
+        }
+
 	protected AspCourierRouteData getData() {
                 
                 return data;

@@ -761,8 +761,10 @@ public class JunkPiratesAnarchistThemeGenerator extends BaseThemeGenerator {
 	
 	
 	public static CustomCampaignEntityAPI addBeacon(StarSystemAPI system, AnarchistSystemType type) {
+		if (system == null || type == null || Global.getSector() == null || Global.getSector().getHyperspace() == null) return null;
 		
 		SectorEntityToken anchor = system.getHyperspaceAnchor();
+                if (anchor == null) return null;
 		List<SectorEntityToken> points = Global.getSector().getHyperspace().getEntities(JumpPointAPI.class);
 		
 		float minRange = 600;
@@ -775,6 +777,7 @@ public class JunkPiratesAnarchistThemeGenerator extends BaseThemeGenerator {
 			if (point.getDestinations().isEmpty()) continue;
 			
 			JumpPointAPI.JumpDestination dest = point.getDestinations().get(0);
+                        if (dest == null || dest.getDestination() == null || dest.getDestination().getContainingLocation() == null) continue;
 			if (dest.getDestination().getContainingLocation() != system) continue;
 			
 			float dist = Misc.getDistance(anchor.getLocation(), point.getLocation());

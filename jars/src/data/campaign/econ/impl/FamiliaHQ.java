@@ -36,12 +36,12 @@ public class FamiliaHQ extends BaseIndustry implements RouteFleetSpawner, FleetE
 	
 	@Override
 	public boolean isHidden() {
-		return !market.getFactionId().equals("syndicate_asp");
+		return market == null || !"syndicate_asp".equals(market.getFactionId());
 	}
 	
 	@Override
 	public boolean isFunctional() {
-		return super.isFunctional() && market.getFactionId().equals("syndicate_asp");
+		return market != null && super.isFunctional() && "syndicate_asp".equals(market.getFactionId());
 	}
 
 	public void apply() {
@@ -63,6 +63,7 @@ public class FamiliaHQ extends BaseIndustry implements RouteFleetSpawner, FleetE
 		
 		modifyStabilityWithBaseMod();
 		
+		if (market == null) return;
 		MemoryAPI memory = market.getMemoryWithoutUpdate();
 		Misc.setFlagWithReason(memory, MemFlags.MARKET_PATROL, getModId(), true, -1);
 		Misc.setFlagWithReason(memory, MemFlags.MARKET_MILITARY, getModId(), true, -1);
@@ -78,6 +79,7 @@ public class FamiliaHQ extends BaseIndustry implements RouteFleetSpawner, FleetE
 	public void unapply() {
 		super.unapply();
 		
+		if (market == null) return;
 		MemoryAPI memory = market.getMemoryWithoutUpdate();
 		Misc.setFlagWithReason(memory, MemFlags.MARKET_PATROL, getModId(), false, -1);
 		Misc.setFlagWithReason(memory, MemFlags.MARKET_MILITARY, getModId(), false, -1);
@@ -102,6 +104,7 @@ public class FamiliaHQ extends BaseIndustry implements RouteFleetSpawner, FleetE
 	}
 	
 	public String getNameForModifier() {
+		if (getSpec() == null || getSpec().getName() == null) return "Familia HQ";
 		if (getSpec().getName().contains("HQ")) {
 			return getSpec().getName();
 		}
@@ -150,9 +153,9 @@ public class FamiliaHQ extends BaseIndustry implements RouteFleetSpawner, FleetE
 	public void advance(float amount) {
 		super.advance(amount);
 		
-		if (Global.getSector().getEconomy().isSimMode()) return;
+		if (Global.getSector() == null || Global.getSector().getEconomy() == null || Global.getSector().getEconomy().isSimMode()) return;
 
-		if (!isFunctional()) return;
+		if (!isFunctional() || market == null || market.getPrimaryEntity() == null || market.getContainingLocation() == null) return;
 		
 		float days = Global.getSector().getClock().convertToDays(amount);
 		
@@ -249,7 +252,7 @@ public class FamiliaHQ extends BaseIndustry implements RouteFleetSpawner, FleetE
 	}
 
 	public void reportFleetDespawnedToListener(CampaignFleetAPI fleet, FleetDespawnReason reason, Object param) {
-		if (!isFunctional()) return;
+		if (!isFunctional() || market == null || market.getPrimaryEntity() == null || market.getContainingLocation() == null) return;
 		
 		if (reason == FleetDespawnReason.REACHED_DESTINATION) {
 			RouteData route = RouteManager.getInstance().getRoute(getRouteSourceId(), fleet);
@@ -265,6 +268,7 @@ public class FamiliaHQ extends BaseIndustry implements RouteFleetSpawner, FleetE
 	
 	public CampaignFleetAPI spawnFleet(RouteData route) {
 		
+		if (route == null || !(route.getCustom() instanceof PatrolFleetData) || market == null || market.getPrimaryEntity() == null || market.getContainingLocation() == null) return null;
 		PatrolFleetData custom = (PatrolFleetData) route.getCustom();
 		PatrolType type = custom.type;
 		

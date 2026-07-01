@@ -110,13 +110,12 @@ public class JunkPiratesLostTechDefenderInteraction extends BaseCommandPlugin {
                                             memory.unset("$hasDefenders");
                                             memory.unset("$defenderFleet");
                                             memory.set("$defenderFleetDefeated", true);
-                                            MarketAPI her_market = entity.getOrbit().getFocus().getMarket();
-                                            if (her_market.hasCondition("JUNK_habTubes_active")) {
+                                            MarketAPI her_market = getFocusMarket(entity);
+                                            if (her_market != null && her_market.hasCondition("JUNK_habTubes_active")) {
                                                 her_market.removeCondition("JUNK_habTubes_active");
                                                 her_market.addCondition("JUNK_habTubes");
-                                            } else { if (!her_market.hasCondition("JUNK_habTubes")) {
+                                            } else if (her_market != null && !her_market.hasCondition("JUNK_habTubes")) {
                                                 her_market.addCondition("JUNK_habTubes");
-                                                }
                                             }
                                             entity.removeScriptsOfClass(FleetAdvanceScript.class);
                                             FireBest.fire(null, dialog, memoryMap, "BeatDefendersContinue");
@@ -217,5 +216,12 @@ public class JunkPiratesLostTechDefenderInteraction extends BaseCommandPlugin {
             plugin.init(dialog);
 
             return true;
+    }
+
+    private MarketAPI getFocusMarket(SectorEntityToken entity) {
+            if (entity == null || entity.getOrbit() == null || entity.getOrbit().getFocus() == null) {
+                    return null;
+            }
+            return entity.getOrbit().getFocus().getMarket();
     }
 }

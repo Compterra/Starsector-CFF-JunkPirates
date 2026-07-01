@@ -52,7 +52,8 @@ public class SyndicateAspFleetManager extends BaseCampaignEventListener implemen
         super(true);
         
         float interval = Global.getSettings().getFloat("averagePatrolSpawnInterval");
-        tracker = new IntervalUtil(interval * 0.45f / junkPiratesFleetFrequencyModifier, interval * .75f / junkPiratesFleetFrequencyModifier);
+        float frequency = Math.max(0.1f, junkPiratesFleetFrequencyModifier);
+        tracker = new IntervalUtil(interval * 0.45f / frequency, interval * .75f / frequency);
         
     }
 
@@ -74,6 +75,8 @@ public class SyndicateAspFleetManager extends BaseCampaignEventListener implemen
     @Override
     public void advance(float amount) {
         
+        if (Global.getSector() == null || Global.getSector().getEconomy() == null || Global.getSector().getClock() == null) return;
+        pruneInactiveFleets();
         float days = Global.getSector().getClock().convertToDays(amount);
         
         tracker.advance(days);
@@ -102,7 +105,12 @@ public class SyndicateAspFleetManager extends BaseCampaignEventListener implemen
 //            return ASP_SOURCE_ID;
 //    }
     
+    protected void pruneInactiveFleets() {
+        activeAspFleets.removeIf(data -> data == null || data.fleet == null || !data.fleet.isAlive());
+    }
+
     protected int getMaxFleets() {
+        if (Global.getSector() == null || Global.getSector().getEconomy() == null) return 0;
         int numMarkets = Global.getSector().getEconomy().getNumMarkets();
         int maxBasedOnMarket = (int) ( numMarkets * junkPiratesMaxFleetModifier/ 4 ); //numMarkets * 2 is vanilla equivalent for Economy fleets. We want to be well below this.
         return maxBasedOnMarket; // probably want to externalise this in mendoncaModSettings
@@ -129,14 +137,11 @@ public class SyndicateAspFleetManager extends BaseCampaignEventListener implemen
                         //log.info("Added ASP courier fleet route from " + from.getName() + " to " + to.getName());
                         //log.info("The fellas are mucking about with " + data.mission);
 
-                        if (data.fleet != null && !Factions.PLAYER.equals(data.from.getFactionId())) {
+                        CampaignFleetAPI spawned = spawnFleet(data);
+                        if (spawned != null && !Factions.PLAYER.equals(data.from.getFactionId()) && enableJunkPiratesIntel) {
                             // queues itself; don't do ones running from Player Colonies
-                            if (enableJunkPiratesIntel) {
-                                new AspCourierDepartureIntel(data);
-                            }
+                            new AspCourierDepartureIntel(data);
                         }
-                        
-                        spawnFleet(data);
                         
 
 
@@ -255,9 +260,7 @@ public class SyndicateAspFleetManager extends BaseCampaignEventListener implemen
         //float itemsRoll = (float) Math.random() * 10;
         float moneyRoll = (float) Math.random() * 10;
         
-        CampaignFleetAPI placeHolder = FleetFactoryV3.createEmptyFleet("syndicate_asp", FleetTypes.TRADE_SMALL, from);
-        
-        AspCourierRouteData data = new AspCourierRouteData(placeHolder);
+        AspCourierRouteData data = new AspCourierRouteData(null);
         
 //        if (itemsRoll < itemsChance) { // set items to true; this cargo is just items
 //            data.items = true;
@@ -516,6 +519,7 @@ public class SyndicateAspFleetManager extends BaseCampaignEventListener implemen
 
     @Override
     public void reportPlayerEngagement(EngagementResultAPI result) {
+        if (result == null || Global.getSector() == null) return;
         boolean player_won = result.didPlayerWin();
         if (player_won) {
             Global.getSector().getMemoryWithoutUpdate().set("$playerIsAspWanted", true);
