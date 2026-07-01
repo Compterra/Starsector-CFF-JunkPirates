@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.3
+
+- Hardened ASP courier, ASP hit squad, and Junk explorer campaign scripts against stale fleets and null campaign state.
+- Fixed Junkjet/electrochaff and Tangerine Blue combat edge cases that could crash benchmark or large battles.
+- Added safer Familia HQ patrol spawning, lost-tech defender cleanup, and anarchist beacon procgen guards.
+
 ## 1.0.2
 
 - Fixed a campaign crash from `FamiliaHQ$1.class` being compiled for Java 21 instead of Starsector's Java 17 runtime.
